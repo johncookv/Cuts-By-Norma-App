@@ -1,0 +1,24 @@
+{
+  "name": "Giant-React-Starter",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "^4.0.0-beta.2",
+    "jquery": "^3.2.1",
+    "node-sass": "^4.7.2",
+    "nodemon": "^1.12.1",
+    "react": "^16.1.1",
+    "react-dom": "^16.1.1",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.0.17"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "build-css": "node-sass --include-path scss src/App.scss src/App.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+  }
+}
