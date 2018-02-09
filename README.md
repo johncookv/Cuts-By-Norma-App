@@ -1,7 +1,7 @@
 # Getting Started
 Install it with $ npm i
 
-Watch SCSS with $ npm run watch-css
+Watch SASS with $ npm run watch-css
 
 Start Node wtih $ npm run start
 
