@@ -1,3 +1,7 @@
+var project_name = 'react-starter';
+var client_name  = 'giantagency';
+var git_repo     = 'git@github.com:GiantAgency/react-starter.git';
+
 module.exports = {
   /**
    * Application configuration section
@@ -55,9 +59,10 @@ module.exports = {
       user : 'ec2-user',
       host : 'ec2-35-173-91-159.compute-1.amazonaws.com',
       ref  : 'origin/master',
-      repo : 'git@github.com:GiantAgency/react-starter.git',
+      repo : git_repo,
+      'pre-setup':'mkdir -vp /var/www/stage/' + client_name + '/' + project_name + ' && sudo /usr/local/bin/virtualhost create stage.'+ project_name +'.giantstaging.com ' + '/var/www/stage/'+ client_name + '/' + project_name + '/build' ,
       'post-setup': 'pwd && ls -la',
-      path : '/var/www/stage/giantagency/react-starter',
+      path : '/var/www/stage/'+ client_name + '/' + project_name,
       'post-deploy' : 'npm install && npm run build && cp -r ./build/* ../htdocs/',
       env  : {
         NODE_ENV: 'stage'
@@ -68,9 +73,10 @@ module.exports = {
       user : 'ec2-user',
       host : 'ec2-35-173-91-159.compute-1.amazonaws.com',
       ref  : 'origin/master',
-      repo : 'git@github.com:GiantAgency/react-starter.git',
+      repo : git_repo,
+      'pre-setup':'mkdir -vp /var/www/clients/' + client_name + '/' + project_name + ' && sudo /usr/local/bin/virtualhost create client.'+ project_name +'.giantstaging.com ' + '/var/www/clients/'+ client_name + '/' + project_name + '/build' ,
       'post-setup': 'pwd && ls -la',
-      path : '/var/www/clients/giantagency/react-starter',
+      path : '/var/www/clients/' + client_name + '/' + project_name,
       'post-deploy' : 'npm install && npm run build && cp -r ./build/* ../htdocs/',
       env  : {
         NODE_ENV: 'client'
