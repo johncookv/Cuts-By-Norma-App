@@ -1,6 +1,11 @@
+/**
+ * Project configuration section
+ */
+
 var project_name = 'react-starter';
 var client_name  = 'giantagency';
 var git_repo     = 'git@github.com:GiantAgency/react-starter.git';
+var git_branch   = 'master';
 
 module.exports = {
   /**
@@ -24,6 +29,9 @@ module.exports = {
       },
       env_client : {
         NODE_ENV: 'client'
+      },
+      env_qa : {
+        NODE_ENV: 'qa'
       }
     },
   ],
@@ -42,11 +50,11 @@ module.exports = {
       'post-deploy' : 'npm install && pm2 reload ecosystem.config.js --env production'
     },
     production : {
-      'key' : '~/.ssh/GiantProduction.pem',
+      'key' : '~/.ssh/GiantProductionLightSail.pem',
       user : '[USERNAME]',
       host : '[IP ADDRESS]',
-      ref  : 'origin/master',
-      repo : 'git@github.com:GiantAgency/react-starter.git',
+      ref  : 'origin/'+git_branch,
+      repo : git_repo,
       'post-setup': 'pwd && ls -la',
       path : '/var/www/',
       'post-deploy' : 'npm install && npm run build && cp -r ./build/* ../htdocs/',
@@ -58,7 +66,7 @@ module.exports = {
       'key' : '~/.ssh/GiantStageEC2.pem',
       user : 'ec2-user',
       host : 'ec2-35-173-91-159.compute-1.amazonaws.com',
-      ref  : 'origin/master',
+      ref  : 'origin/'+git_branch,
       repo : git_repo,
       'pre-setup':'mkdir -vp /var/www/stage/' + client_name + '/' + project_name + ' && sudo /usr/local/bin/virtualhost create stage.'+ project_name +'.giantstaging.com ' + '/var/www/stage/'+ client_name + '/' + project_name + '/htdocs' ,
       'post-setup': 'pwd && ls -la',
@@ -72,12 +80,26 @@ module.exports = {
       'key' : '~/.ssh/GiantStageEC2.pem',
       user : 'ec2-user',
       host : 'ec2-35-173-91-159.compute-1.amazonaws.com',
-      ref  : 'origin/master',
+      ref  : 'origin/'+git_branch,
       repo : git_repo,
-      'pre-setup':'mkdir -vp /var/www/clients/' + client_name + '/' + project_name + ' && sudo /usr/local/bin/virtualhost create client.'+ project_name +'.giantstaging.com ' + '/var/www/clients/'+ client_name + '/' + project_name + '/htdocs' ,
+      'pre-setup':'mkdir -vp /var/www/stage/' + client_name + '/' + project_name + ' && sudo /usr/local/bin/virtualhost create client.'+ project_name +'.giantstaging.com ' + '/var/www/stage/'+ client_name + '/' + project_name + '/htdocs_client' ,
       'post-setup': 'pwd && ls -la',
-      path : '/var/www/clients/' + client_name + '/' + project_name,
-      'post-deploy' : 'npm install && npm run build && cp -r ./build/* ../htdocs/',
+      path : '/var/www/stage/' + client_name + '/' + project_name,
+      'post-deploy' : 'npm install && npm run build && sudo cp -r ./build/* ../htdocs_client/',
+      env  : {
+        NODE_ENV: 'client'
+      }
+    },
+    qa : {
+      'key' : '~/.ssh/GiantStageEC2.pem',
+      user : 'ec2-user',
+      host : 'ec2-35-173-91-159.compute-1.amazonaws.com',
+      ref  : 'origin/'+git_branch,
+      repo : git_repo,
+      'pre-setup':'mkdir -vp /var/www/stage/' + client_name + '/' + project_name + ' && sudo /usr/local/bin/virtualhost create qa.'+ project_name +'.giantstaging.com ' + '/var/www/stage/'+ client_name + '/' + project_name + '/htdocs_qa',
+      'post-setup': 'pwd && ls -la',
+      path : '/var/www/stage/' + client_name + '/' + project_name,
+      'post-deploy' : 'npm install && npm run build && sudo cp -r ./build/* ../htdocs_qa/',
       env  : {
         NODE_ENV: 'client'
       }
