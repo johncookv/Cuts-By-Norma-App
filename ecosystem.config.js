@@ -101,7 +101,7 @@ module.exports = {
       path : '/var/www/stage/' + client_name + '/' + project_name,
       'post-deploy' : 'npm install && npm run build && sudo cp -r ./build/* ../htdocs_qa/',
       env  : {
-        NODE_ENV: 'client'
+        NODE_ENV: 'qa'
       }
     }
   }
