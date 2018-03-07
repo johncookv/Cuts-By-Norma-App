@@ -6,12 +6,22 @@ $font: Arial
 
 //Import all your component/template stylesheets here
 @import './components/header.sass'
+@import './components/utility_nav.sass'
 @import './components/footer.sass'
 
 //Put global styles here
 *
   margin: 0
   padding: 0
+
+html
+  position: relative
+  min-height: 100%
+
+body
+  /* Margin bottom by footer height */
+  margin-bottom: 60px
+
 
 p
 
