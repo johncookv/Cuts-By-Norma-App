@@ -7,13 +7,16 @@ import './App.css';
 
 //Import all global components here
 import Header from './components/header';
-import Hero from './components/hero';
+
 import Footer from './components/footer';
 import UtilityNav from './components/utility_nav';
 import MainNav from './components/main_nav';
 
 //Import all your pages here for the Router to handle
 import Homepage from './_templates/Homepage';
+import Typography from './_templates/Typography';
+import Components from './_templates/Components';
+import Icons from './_templates/Icons';
 
 
 class App extends Component {
@@ -24,7 +27,7 @@ class App extends Component {
       <div className="container">
         <div className="row">
           <MainNav />
-          <Hero />
+
         </div>
       </div>
       <div className="container">
@@ -32,7 +35,10 @@ class App extends Component {
              <BrowserRouter>
                <Switch>
                  <Route exact path="/" component={Homepage} />
-                 {/* <Route path="/about" component={About} /> */}
+                 <Route path="/components" component={Components} />
+                 <Route path="/typography" component={Typography} />
+                 <Route path="/icons" component={Icons} />
+
                </Switch>
              </BrowserRouter>
           </div>

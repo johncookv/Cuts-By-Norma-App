@@ -12,7 +12,7 @@ export default class MainNav extends Component{
 
               <ul className="navbar-nav mr-auto">
                 <li className="nav-item active">
-                  <a className="nav-link" href="/">Home <span className="sr-only">(current)</span></a>
+                  <a className="nav-link" href="/components">Components</a>
                 </li>
                 <li className="nav-item">
                   <a className="nav-link" href="/typography">Typography</a>
