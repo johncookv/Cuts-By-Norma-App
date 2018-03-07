@@ -1,38 +1,138 @@
 //Put global variables up here
+$brandcolor_1: #000000
+$brandcolor_2: #333333
+$brandcolor_3: #dddddd
+$brandcolor_4: #000000
+$brandcolor_5: #000000
+
+$grayscale_1: #ffffff
+$grayscale_2: #dedede
+$grayscale_3: #a9a9a9
+$grayscale_4: #45657f
+$grayscale_5: #ffffff
+
+$error_red: #d0021b
+$confirmation: #6aa723
+
 $white: #ffffff
 $black: #000000
 $font: Arial
 
-
 //Import all your component/template stylesheets here
 @import './components/header.sass'
+@import './components/main_nav.sass'
 @import './components/utility_nav.sass'
 @import './components/footer.sass'
 
-//Put global styles here
+//Put global styles here mobile styles are first
 *
-  
+
 html
   position: relative
   min-height: 100%
 
 body
-  /* Margin bottom by footer height */
   margin-bottom: 60px
-
-
-p
+  color: $brandcolor_1
+  font-family: $font, sans-serif
+  font-size: 18px
+  line-height: 1.4
+  font-weight: 400
 
 h1
+  color: $brandcolor_1
+  font-size: 40px
+  line-height: 1.4
+  font-weight: 400
 
 h2
+  color: $brandcolor_1
+  font-size: 32px
+  line-height: 1.4
+  font-weight: 400
 
 h3
+  color: $brandcolor_1
+  font-size: 28px
+  line-height: 1.4
+  font-weight: 400
 
 h4
+  color: $brandcolor_1
+  font-size: 28px
+  line-height: 1.4
+  font-weight: 400
+
+.footnotes
+  color: $brandcolor_1
+  font-size: 14px
+  line-height: 1.4
+  font-weight: 400
+
+.footnotes h3
+
+.references
+  color: $brandcolor_1
+  font-size: 14px
+  line-height: 1.4
+  font-weight: 400
+
+.references h3
+  font-size: 14px
+  text-transform: uppercase
+
+.isi
+
+.isi h3
 
 a
 
 a:hover, a:focus
 
 a:visited
+
+//Put global styles here for desktop
+@media (max-width: 768px)
+  body
+    font-size: 16px
+    line-height: 1.4
+
+  h1
+    font-size: 40px
+    line-height: 1.4
+
+  h2
+    font-size: 32px
+    line-height: 1.4
+
+  h3
+    font-size: 28px
+    line-height: 1.4
+
+  h4
+    font-size: 28px
+    line-height: 1.4
+
+  .footnotes
+    font-size: 14px
+    line-height: 1.4
+
+  .footnotes h3
+
+  .references
+    font-size: 14px
+    line-height: 1.4
+
+  .references h3
+    font-size: 14px
+    text-transform: uppercase
+
+  .isi
+
+  .isi h3
+
+  a
+
+  a:hover, a:focus
+
+  a:visited

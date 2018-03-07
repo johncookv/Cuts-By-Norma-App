@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 export default class UtilityNav extends Component{
   render(){
     return(
-      <nav className="navbar navbar-toggleable-md navbar-inverse bg-inverse">
+      <nav className="navbar navbar-toggleable-md utility_nav">
         <div className="container">
           <div className="row">
 

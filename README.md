@@ -17,7 +17,6 @@ npm run start
 Build for production distribution
 ```
 npm run build
-
 ```
 
 [Documentation Here](https://giantagency.atlassian.net/wiki/spaces/MT/pages/162201601/Bootstrap+and+React.js+Web+Application+Development+Process)

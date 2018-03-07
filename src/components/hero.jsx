@@ -15,7 +15,7 @@ export default class Hero extends Component {
           </div>
 
           <div className="col">
-            <a className="btn btn-lg btn-success" href="/typography" role="button">Typography</a>
+            <a className="btn btn-lg btn-success" href="/styleguide" role="button">Style Guide</a>
           </div>
 
           <div className="col">

@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 
-export default class Typography extends Component{
+export default class StyleGuide extends Component{
   render(){
     return(
       <div>
-        <h1>Typography and Colors</h1>
-        <p>Basic global display, typography, and link styles</p>
-
+        <h1>Styleguide</h1>
+        <p>Basic global display, typography, and link styles and colors</p>
+        <h2> Typography</h2>
         <section>
-          <h2> Headings</h2>
+          <h3> Headings</h3>
           <p>HTML headings, <code class="highlighter-rouge">&lt;h1&gt;</code> through <code class="highlighter-rouge">&lt;h6&gt;</code>, are available.</p>
             <table class="table">
              <tbody>
@@ -35,12 +35,12 @@ export default class Typography extends Component{
          </section>
 
          <section>
-           <h2>Links Styles</h2>
+           <h3>Links Styles</h3>
            <a href="#">Home</a> | <a href="#">Patients</a> | <a href="#">Safety</a> | <a href="#">Resources</a>
          </section>
 
          <section>
-           <h2>Body Copy</h2>
+           <h3>Body Copy</h3>
            <p>
              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nunc nec est tempor porttitor. Etiam nec neque id lacus blandit ornare vitae id risus. Nulla bibendum gravida posuere. Nullam porta sed eros sed tincidunt. Cras facilisis urna orci, id congue lectus gravida non. Fusce non placerat dolor. Maecenas et dictum neque. Pellentesque augue neque, faucibus et nunc eget, vestibulum hendrerit justo. Vivamus congue vulputate commodo. Etiam facilisis sed ante in semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
            </p>
@@ -49,22 +49,34 @@ export default class Typography extends Component{
            </p>
          </section>
 
-         <section>
+         <section className="footnote">
            <h2>Footnotes</h2>
-           <p className="footnote">
+           <p>
+             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nunc nec est tempor porttitor. Etiam nec neque id lacus blandit ornare vitae id risus. Nulla bibendum gravida posuere. Nullam porta sed eros sed tincidunt. Cras facilisis urna orci, id congue lectus gravida non. Fusce non placerat dolor. Maecenas et dictum neque. Pellentesque augue neque, faucibus et nunc eget, vestibulum hendrerit justo. Vivamus congue vulputate commodo. Etiam facilisis sed ante in semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+           </p>
+         </section>
+
+         <section className="references">
+           <h3>References</h3>
+           <p>
              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nunc nec est tempor porttitor. Etiam nec neque id lacus blandit ornare vitae id risus. Nulla bibendum gravida posuere. Nullam porta sed eros sed tincidunt. Cras facilisis urna orci, id congue lectus gravida non. Fusce non placerat dolor. Maecenas et dictum neque. Pellentesque augue neque, faucibus et nunc eget, vestibulum hendrerit justo. Vivamus congue vulputate commodo. Etiam facilisis sed ante in semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
            </p>
          </section>
 
          <section>
-           <h2>References</h2>
-           <p className="references">
-             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nunc nec est tempor porttitor. Etiam nec neque id lacus blandit ornare vitae id risus. Nulla bibendum gravida posuere. Nullam porta sed eros sed tincidunt. Cras facilisis urna orci, id congue lectus gravida non. Fusce non placerat dolor. Maecenas et dictum neque. Pellentesque augue neque, faucibus et nunc eget, vestibulum hendrerit justo. Vivamus congue vulputate commodo. Etiam facilisis sed ante in semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-           </p>
+           <h3>List Styles</h3>
+           <ul>
+             <li>Netus et malesuada fames ac. Egestas quis ipsum</li>
+             <li>Suspendisse ultrices gravida dictum</li>
+             <li>Lorem ipsum dolor sit amet</li>
+             <li>Consectetur adipiscing elit, sed do</li>
+           </ul>
          </section>
 
+         <h2>Colors</h2>
+
          <section>
-           <h2>List Styles</h2>
+           <h2> Swatches</h2>
            <ul>
              <li>Netus et malesuada fames ac. Egestas quis ipsum</li>
              <li>Suspendisse ultrices gravida dictum</li>
@@ -74,17 +86,31 @@ export default class Typography extends Component{
          </section>
 
          <section>
-           <h2>Color Swatches</h2>
-           <ul>
-             <li>Netus et malesuada fames ac. Egestas quis ipsum</li>
-             <li>Suspendisse ultrices gravida dictum</li>
-             <li>Lorem ipsum dolor sit amet</li>
-             <li>Consectetur adipiscing elit, sed do</li>
-           </ul>
-         </section>
+         <h2>Exmaple</h2>
+         <h3>Nulla a nunc nec est tempor porttitor</h3>
 
+         <div className="row">
+           <div className="col">
+              <h4>Lorem ipsum dolor </h4>
+               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nunc nec est tempor porttitor. Etiam nec neque id lacus blandit ornare vitae id risus. Nulla bibendum gravida posuere. Nullam
+           </div>
+           <div className="col">
+              <h4>Lorem  sit amet</h4>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nunc nec est tempor porttitor. Etiam nec neque id lacus blandit ornare vitae id risus. Nulla bibendum gravida posuere. Nullam
+           </div>
+           <div className="col">
+               <h4>Lorem i sit amet</h4>
+                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nunc nec est tempor porttitor. Etiam nec neque id lacus blandit ornare vitae id risus. Nulla bibendum gravida posuere. Nullam
+           </div>
+         </div>
+
+
+
+         </section>
 
       </div>
+
+
 
 
     )
