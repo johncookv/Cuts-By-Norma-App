@@ -2,10 +2,11 @@
  * Project configuration section
  */
 
-var project_name = 'react-starter';
-var client_name  = 'giantagency';
-var git_repo     = 'git@github.com:GiantAgency/react-starter.git';
-var git_branch   = 'master';
+var project_name     = 'react-starter';
+var client_name      = 'giantagency';
+var git_repo         = 'git@github.com:GiantAgency/react-starter.git';
+var git_branch       = 'master';
+var fortawesome_cmd  = 'npm config set @fortawesome:registry https://npm.fontawesome.com/EEFD84F8-907F-4B20-82D9-DC20387F3808 && ';
 
 module.exports = {
   /**
@@ -71,7 +72,7 @@ module.exports = {
       'pre-setup':'mkdir -vp /var/www/stage/' + client_name + '/' + project_name + ' && sudo /usr/local/bin/virtualhost create stage.'+ project_name +'.giantstaging.com ' + '/var/www/stage/'+ client_name + '/' + project_name + '/htdocs' ,
       'post-setup': 'pwd && ls -la',
       path : '/var/www/stage/'+ client_name + '/' + project_name,
-      'post-deploy' : 'npm install && npm run build && cp -r ./build/* ../htdocs/',
+      'post-deploy' : fortawesome_cmd + 'npm install && npm run build && cp -r ./build/* ../htdocs/',
       env  : {
         NODE_ENV: 'stage'
       }
@@ -85,7 +86,7 @@ module.exports = {
       'pre-setup':'mkdir -vp /var/www/stage/' + client_name + '/' + project_name + ' && sudo /usr/local/bin/virtualhost create client.'+ project_name +'.giantstaging.com ' + '/var/www/stage/'+ client_name + '/' + project_name + '/htdocs_client' ,
       'post-setup': 'pwd && ls -la',
       path : '/var/www/stage/' + client_name + '/' + project_name,
-      'post-deploy' : 'npm install && npm run build && sudo cp -r ./build/* ../htdocs_client/',
+      'post-deploy' : fortawesome_cmd + 'npm install && npm run build && sudo cp -r ./build/* ../htdocs_client/',
       env  : {
         NODE_ENV: 'client'
       }
@@ -99,7 +100,7 @@ module.exports = {
       'pre-setup':'mkdir -vp /var/www/stage/' + client_name + '/' + project_name + ' && sudo /usr/local/bin/virtualhost create qa.'+ project_name +'.giantstaging.com ' + '/var/www/stage/'+ client_name + '/' + project_name + '/htdocs_qa',
       'post-setup': 'pwd && ls -la',
       path : '/var/www/stage/' + client_name + '/' + project_name,
-      'post-deploy' : 'npm install && npm run build && sudo cp -r ./build/* ../htdocs_qa/',
+      'post-deploy' : fortawesome_cmd + 'npm install && npm run build && sudo cp -r ./build/* ../htdocs_qa/',
       env  : {
         NODE_ENV: 'qa'
       }
