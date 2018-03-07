@@ -72,7 +72,7 @@ module.exports = {
       'pre-setup':'mkdir -vp /var/www/stage/' + client_name + '/' + project_name + ' && sudo /usr/local/bin/virtualhost create stage.'+ project_name +'.giantstaging.com ' + '/var/www/stage/'+ client_name + '/' + project_name + '/htdocs' ,
       'post-setup': 'pwd && ls -la',
       path : '/var/www/stage/'+ client_name + '/' + project_name,
-      'post-deploy' : fortawesome_cmd + 'npm install && npm run build && cp -r ./build/* ../htdocs/',
+      'post-deploy' : fortawesome_cmd + 'npm install && npm run build && cp -r ./build/* ../htdocs/ && cp ./public/.htaccess ../htdocs/',
       env  : {
         NODE_ENV: 'stage'
       }
@@ -86,7 +86,7 @@ module.exports = {
       'pre-setup':'mkdir -vp /var/www/stage/' + client_name + '/' + project_name + ' && sudo /usr/local/bin/virtualhost create client.'+ project_name +'.giantstaging.com ' + '/var/www/stage/'+ client_name + '/' + project_name + '/htdocs_client' ,
       'post-setup': 'pwd && ls -la',
       path : '/var/www/stage/' + client_name + '/' + project_name,
-      'post-deploy' : fortawesome_cmd + 'npm install && npm run build && sudo cp -r ./build/* ../htdocs_client/',
+      'post-deploy' : fortawesome_cmd + 'npm install && npm run build && sudo cp -r ./build/* ../htdocs_client/ && cp ./public/.htaccess ../htdocs/',
       env  : {
         NODE_ENV: 'client'
       }
@@ -100,7 +100,7 @@ module.exports = {
       'pre-setup':'mkdir -vp /var/www/stage/' + client_name + '/' + project_name + ' && sudo /usr/local/bin/virtualhost create qa.'+ project_name +'.giantstaging.com ' + '/var/www/stage/'+ client_name + '/' + project_name + '/htdocs_qa',
       'post-setup': 'pwd && ls -la',
       path : '/var/www/stage/' + client_name + '/' + project_name,
-      'post-deploy' : fortawesome_cmd + 'npm install && npm run build && sudo cp -r ./build/* ../htdocs_qa/',
+      'post-deploy' : fortawesome_cmd + 'npm install && npm run build && sudo cp -r ./build/* ../htdocs_qa/ && cp ./public/.htaccess ../htdocs/',
       env  : {
         NODE_ENV: 'qa'
       }
