@@ -62,7 +62,7 @@ export default class Homepage extends Component {
           <h2>Workflow</h2>
           <p className="lead">Weekly meetings with UI Designer and Developer through the life cycle of the project. Day 1 is planning in Jira end of the sprint is a reviewed.</p>
           <ul>
-            <li><strong>Sprint 0 Planning and Setup:</strong> Infrature setup, <u>document requirements</u>. Then <u>establish a style guide</u> based on required and wireframes and sitemaps are needed. Setup: Jira Boards, Staging and Production Servers, Version Control etc...</li>
+            <li><strong>Sprint 0 Planning and Setup:</strong> Infrature setup, <u>document requirements</u>. Then <u>establish a style guide</u> based on requirements then determine what wireframes and sitemaps are needed. Setup: Jira Boards, Staging and Production Servers, Version Control etc...</li>
             <li><strong>Sprint 1 Design UI:</strong> <u>Design mobile and desktop</u> templates based on requirements, code shell, and global styling </li>
             <li><strong>Sprint 2 Code Shell Components:</strong> <u>Build</u>, responsive header, main content area, footer, key functionally and complex modules that usually requires more time so that final content and art can be easily updated (Heros, Carousels, Backend Sign Up Forms ISI Tray etc, CTA, Micro interactions I)</li>
             <li><strong>Sprint 3 Content, Layout and Feature Freeze:</strong> With near finalized manuscript incorporate in design layout. We are in feature freeze. New functionality will be documented and marked for another phase.</li>
