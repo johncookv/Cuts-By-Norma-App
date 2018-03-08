@@ -4,7 +4,13 @@ export default class Header extends Component{
   render(){
     return(
       <header>
-        <h1>Put all your header stuff here</h1>
+        <div className="container">
+          <div className="row">
+            <div className="col">
+              <span className="text-muted">Header</span>
+            </div>
+          </div>
+        </div>
       </header>
     )
   }

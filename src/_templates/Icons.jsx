@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
-export default class Icons extends Component{
-  render(){
-    return(
-      <div>
-        <h1>Icons</h1>
-
-
+export default class Icons extends Component {
+  render() {
+    return (<div className="container">
+      <div className="row">
+        <div className="col">
+          <h1>Icons</h1>
+        </div>
       </div>
-    )
+    </div>)
   }
 }

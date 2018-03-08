@@ -25,23 +25,17 @@ class App extends Component {
     <div>
       <UtilityNav />
       <MainNav />
-
-      <div className="container">
-         <div className="row">
-             <BrowserRouter>
-               <Switch>
-                 <Route exact path="/" component={Homepage} />
-                 <Route path="/components" component={Components} />
-                 <Route path="/styleguide" component={StyleGuide} />
-                 <Route path="/icons" component={Icons} />
-               </Switch>
-             </BrowserRouter>
-          </div>
-       </div>
-
+         <BrowserRouter>
+           <Switch>
+             <Route exact path="/" component={Homepage} />
+             <Route path="/components" component={Components} />
+             <Route path="/styleguide" component={StyleGuide} />
+             <Route path="/icons" component={Icons} />
+           </Switch>
+         </BrowserRouter>
 
        <Footer />
-      </div>
+     </div>
     );
   }
 }

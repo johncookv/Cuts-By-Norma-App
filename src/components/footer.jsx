@@ -6,7 +6,9 @@ export default class Footer extends Component{
       <footer className="footer">
         <div className="container">
           <div className="row">
-            <span className="text-muted">Place sticky footer content here.</span>
+            <div className="col">
+              <span className="text-muted">Place sticky footer content here.</span>
+            </div>  
           </div>
         </div>
       </footer>
