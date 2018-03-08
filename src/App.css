@@ -23,46 +23,35 @@ html {
 body {
   margin-bottom: 60px;
   color: #000000;
-  font-family: Arial, sans-serif;
+  font-family: "Lato", sans-serif, sans-serif;
   font-size: 18px;
-  line-height: 1.4;
-  font-weight: 400; }
+  font-weight: 400;
+  line-height: 1.7; }
 
 h1 {
   color: #000000;
   font-size: 40px;
-  line-height: 1.4;
-  font-weight: 400; }
+  line-height: 1.7; }
 
 h2 {
   color: #000000;
-  font-size: 32px;
-  line-height: 1.4;
-  font-weight: 400; }
+  font-size: 32px; }
 
 h3 {
   color: #000000;
-  font-size: 28px;
-  line-height: 1.4;
-  font-weight: 400; }
+  font-size: 28px; }
 
 h4 {
   color: #000000;
-  font-size: 28px;
-  line-height: 1.4;
-  font-weight: 400; }
+  font-size: 24px; }
 
 .footnotes {
   color: #000000;
-  font-size: 14px;
-  line-height: 1.4;
-  font-weight: 400; }
+  font-size: 14px; }
 
 .references {
   color: #000000;
-  font-size: 14px;
-  line-height: 1.4;
-  font-weight: 400; }
+  font-size: 14px; }
 
 .references h3 {
   font-size: 14px;

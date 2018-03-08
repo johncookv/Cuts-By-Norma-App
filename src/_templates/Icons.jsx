@@ -5,7 +5,7 @@ export default class Icons extends Component {
     return (<div className="container">
       <div className="row">
         <div className="col">
-          <h1>Icons</h1>
+          <h1 className="display-4">Icons</h1>
         </div>
       </div>
     </div>)
