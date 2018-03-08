@@ -25,6 +25,11 @@ npm run build
 # Requirements
 Node v8.9 or higher. You can switch between multiple versions with [Node Version Manager](https://github.com/creationix/nvm)
 
+## Fortawesome Support
+Run the following command
+```
+npm config set @fortawesome:registry https://npm.fontawesome.com/EEFD84F8-907F-4B20-82D9-DC20387F3808
+```
 # Deployment
 Checklist
 * `pm2` is installed globally on your local machine
