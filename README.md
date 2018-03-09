@@ -30,7 +30,7 @@ Run the following command
 ```
 npm config set @fortawesome:registry https://npm.fontawesome.com/EEFD84F8-907F-4B20-82D9-DC20387F3808
 ```
-# PM2 Deployment
+## PM2 Deployment
 
 Install http://pm2.keymetrics.io/docs/usage/quick-start/
 ```
