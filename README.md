@@ -31,42 +31,6 @@ Run the following command
 npm config set @fortawesome:registry https://npm.fontawesome.com/EEFD84F8-907F-4B20-82D9-DC20387F3808
 ```
 ## PM2 Deployment
+For the most recent `ecosystem.config.js` file and configuration instructions go to https://github.com/GiantAgency/PM2-Deployment-Congifuration
 
-Install http://pm2.keymetrics.io/docs/usage/quick-start/
-```
-npm install pm2@latest -g
-```
-Place `.pem` files in your local ssh folder `~/.ssh/` which are located on Giant file server `Shared/GIANT/Department Resources/Marketing_Tech/Security`
 
-Update permissions 
-```
-chmod 400 *.pem
-```
-
-## Setup Staging and/or Client Review Server
-Ignore warnings about `.../libcrypto.so.1.0.0: no version information available`
-### Stage
-```
-pm2 deploy stage setup
-```
-### Client
-```
-pm2 deploy client setup
-```
-
-## Build for Production
-```
-pm2 deploy production
-```
-
-## Updating
-Same as building for production
-```
-deploy production update
-```
-
-## Reverting
-Update to previous a commit, 1 means -1 or 10 is -10 in the order of commits
-```
-deploy production revert 1
-```
