@@ -14,7 +14,7 @@ export default class StyleGuide extends Component{
            <p>
              <ul>
                <li>Keep number of fonts to a minimum for loading speed as well as editing/qa (goal: maximum 8 font styles)</li>
-               <li>Leverage <a href="https://fonts.google.com/" target="_blank">Google Fonts</a> customized to include their variations</li>
+               <li>Leverage <a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">Google Fonts</a> customized to include their variations</li>
                <li>In initial design phase only use fonts that are web-safe / web representative: https://www.cssfontstack.com/  When client has a specified font that is not web-safe we can embed it in images and recommend a web-font replacement for live text.</li>
                <li>Enable fontswap for hosted fonts with fallback font for a faster meaningful content rendering</li>
              </ul>
@@ -49,7 +49,7 @@ export default class StyleGuide extends Component{
 
             <section>
               <h3>Links Styles</h3>
-              <a href="#">Home</a> | <a href="#">Patients</a> | <a href="#">Safety</a> | <a href="#">Resources</a>
+              <a href="http://">Home</a> | <a href="http://">Patients</a> | <a href="http://">Safety</a> | <a href="http://">Resources</a>
             </section>
 
             <section>
