@@ -18,10 +18,10 @@ export default class UtilityNav extends Component {
               </li>
 
               <li className="nav-item">
-                <a className="nav-link" href="#">Important Safety Information</a>
+                <a className="nav-link" href="http://">Important Safety Information</a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">Full Prescribing Information & Patient Information
+                <a className="nav-link" href="http://">Full Prescribing Information & Patient Information
                 </a>
               </li>
             </ul>

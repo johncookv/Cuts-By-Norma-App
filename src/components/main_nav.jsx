@@ -7,7 +7,7 @@ export default class MainNav extends Component {
        <div className="row align-items-center main_nav">
 
         <div className="col-2">
-          <a className="navbar-brand logo" href="/"><img src={require('../assets/giant_greenLogo.png')} width="170%"/></a>
+          <a className="navbar-brand logo" href="/"><img src={require('../assets/giant_greenLogo.png')} width="170%" alt="Giant Creative Strategy" /></a>
         </div>
 
         <div className="col-5 offset-md-5">
