@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 
 export default class UtilityNav extends Component {
   render() {
-    return (<nav className="navbar navbar-toggleable-md utility_nav">
+    return (<nav className="navbar navbar-toggleable-md untility-nav">
 
       <div className="container">
         <div className="row">

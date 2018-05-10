@@ -5,7 +5,7 @@ export default class Components extends Component {
     return (<div className="container">
       <div className="row">
         <div className="col">
-          <h1 className="display-4">Reuable Components</h1>
+          <h1>Reuable Components</h1>
 
           <h2>Websites</h2>
 
@@ -25,7 +25,7 @@ export default class Components extends Component {
           <hr />
 
             <ol>
-              <li>Build the React Component  foundationality with it's own Git Repo and detailed README.md</li>
+              <li>Build the React Component foundationality with it's own Git Repo and detailed README.md</li>
               <li>Get feedback from your teammates</li>
               <li>Add the component to this React Starter Kit</li>
               <li>Once we notice their is high usage or before turn into an npm package</li>

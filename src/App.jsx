@@ -6,11 +6,11 @@ import { BrowserRouter, Link, Route, Switch } from 'react-router-dom';
 import './App.css';
 
 //Import all global components here
-import Header from './components/header';
+import Header from './components/Header';
 
-import Footer from './components/footer';
-import UtilityNav from './components/utility_nav';
-import MainNav from './components/main_nav';
+import Footer from './components/Footer';
+import UtilityNav from './components/UtilityNav';
+import MainNav from './components/MainNav';
 
 //Import all your pages here for the Router to handle
 import Homepage from './_templates/Homepage';
