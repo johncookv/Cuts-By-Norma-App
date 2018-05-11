@@ -4,10 +4,9 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
 
 // Global components
-//import Header from './components/Header';
-import Footer from './components/Footer';
 import UtilityNav from './components/UtilityNav';
-import MainNav from './components/MainNav';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 // Interior pages (router nested)
 import Homepage from './_templates/Homepage';
@@ -21,7 +20,7 @@ class App extends Component {
     return (
       <div>
         <UtilityNav />
-        <MainNav />
+        <Header />
         <BrowserRouter>
           <Switch>
             <Route exact path="/" component={Homepage} />
