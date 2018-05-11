@@ -1,34 +1,34 @@
 
 // Phone vs non-phone
 @mixin breakpoint($point: lg)
-  @if $point == lg
-    @media (min-width: 768px)
-      @content
-  @if $point == sm
-    @media (max-width: 767px)
-      @content
+	@if $point == lg
+		@media (min-width: 768px)
+			@content
+	@if $point == sm
+		@media (max-width: 767px)
+			@content
 
 
 // Bootstrap break points
 @mixin breakpoint($point: b-md)
-  @if $point == b-lg
-    @media (min-width: 1200px)
-      @content
-  @else if $point == b-md
-    @media (min-width: 768px) and (max-width: 1199.98px)
-      @content
-  @else if $point == b-sm
-    @media (min-width: 576px) and (max-width: 767.98px)
-      @content
-  @else if $point == b-xs
-    @media (min-width: 1px) and (max-width: 575.98pxpx)
-      @content
+	@if $point == b-lg
+		@media (min-width: 1200px)
+			@content
+	@else if $point == b-md
+		@media (min-width: 768px) and (max-width: 1199.98px)
+			@content
+	@else if $point == b-sm
+		@media (min-width: 576px) and (max-width: 767.98px)
+			@content
+	@else if $point == b-xs
+		@media (min-width: 1px) and (max-width: 575.98pxpx)
+			@content
 
 
 
 //Put global variables up here
-$brandcolor_1: blue
-$brandcolor_2: red
+$brandcolor-1: #333
+$brandcolor-2: red
 
 
 $white: #ffffff
@@ -38,70 +38,66 @@ $black: #000000
 //Install any Google Font with NPM and Webpack
 //  1. npm install --save typeface-roboto
 //  2. In index.js: import 'typeface-roboto'
-$font: 'Lato', sans-serif
+$primary-font: 'Lato', sans-serif
 
 
 //Import all your component/template stylesheets here
+@import './components/UtilityNav.sass'
 @import './components/Header.sass'
 @import './components/MainNav.sass'
-@import './components/UtilityNav.sass'
 @import './components/Footer.sass'
 
 //Put global styles here mobile styles are first
 *
 
 html
-  position: relative
-  min-height: 100%
+	// position: relative
+	// min-height: 100%
 
 body
-  margin-bottom: 60px
-  color: $brandcolor_1
-  font-family: $font, sans-serif
-  font-size: 18px
-  font-weight: 400
-
+	color: $brandcolor-1
+	font-family: $primary-font, sans-serif
+	font-size: 18px
+	font-weight: 400
 
 h1
-  color: $brandcolor_1
-  font-size: 40px
+	color: $brandcolor-1
+	font-size: 40px
 
-  @include breakpoint(lg)
-    // Exception for desktop
+	@include breakpoint(lg)
+		font-size: 40px
 
 h2
-  color: $brandcolor_1
-  font-size: 32px
+	color: $brandcolor-1
+	font-size: 32px
 
-  @include breakpoint(lg)
-    // Exception for desktop
-
+	@include breakpoint(lg)
+		font-size: 32px
 
 h3
-  color: $brandcolor_1
-  font-size: 28px
+	color: $brandcolor-1
+	font-size: 28px
 
-  @include breakpoint(lg)
-    // Exception for desktop
-
+	@include breakpoint(lg)
+		font-size: 28px
 
 h4
-  color: $brandcolor_1
-  font-size: 24px
+	color: $brandcolor-1
+	font-size: 24px
 
-  @include breakpoint(lg)
-    // Exception for desktop
+	@include breakpoint(lg)
+		font-size: 24px
 
 
 a
-  color: $brandcolor_1
-  &:link,
-  &:visited
-    color: $brandcolor_1
-  &:hover
-    color: $brandcolor_2
-  &:active
-    color: $brandcolor_1
-  &:focus
-    outline: 0
+	color: $brandcolor-1
+	&:link,
+	&:visited
+		color: $brandcolor-1
+	&:hover
+		color: $brandcolor-2
+	&:active
+		color: $brandcolor-1
+	&:focus
+		outline: 0
 
