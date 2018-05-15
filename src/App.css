@@ -7,26 +7,22 @@
 
 .header {
   display: block;
-  background-color: LemonChiffon;
-  font-size: 14px; }
+  background-color: LemonChiffon; }
   .header .header-innner {
     border: 1px solid grey; }
     .header .header-innner .header-left .logo {
-      display: inline-block;
-      min-width: 100px;
+      width: 100%;
+      min-width: 80px;
       max-width: 200px; }
-    .header .header-innner .header-right .page-btns {
-      height: 100%;
-      font-size: 15px; }
-      @media (min-width: 768px) {
-        .header .header-innner .header-right .page-btns {
-          font-size: 20px; } }
-      @media (min-width: 768px) {
-        .header .header-innner .header-right .page-btns div {
-          padding-left: 70px !important; } }
-      @media (max-width: 575.98px) {
-        .header .header-innner .header-right .page-btns div {
-          padding-left: 10px !important; } }
+    .header .header-innner .header-right .page-btns-flex {
+      height: 100%; }
+      .header .header-innner .header-right .page-btns-flex div {
+        font-size: 0.8em;
+        padding-left: 1em !important; }
+        @media (min-width: 768px) {
+          .header .header-innner .header-right .page-btns-flex div {
+            font-size: 1em;
+            padding-left: 1.4em !important; } }
 
 .footer {
   display: block;

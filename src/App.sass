@@ -1,4 +1,4 @@
-// Phone vs non-phone
+// Phone vs non-phone (including landscape phone)
 @mixin breakpoint($point: lg)
 	@if $point == lg
 		@media (min-width: 768px)
@@ -8,7 +8,7 @@
 			@content
 
 
-// Bootstrap break points
+// Bootstrap break points (xxs added for portrait phone view)
 @mixin bootpoint($point: md)
 	@if $point == lg
 		@media (min-width: 1200px)
@@ -20,7 +20,10 @@
 		@media (min-width: 576px) and (max-width: 767.98px)
 			@content
 	@else if $point == xs
-		@media (max-width: 575.98px)
+		@media (min-width: 414px) and (max-width: 575.98px)
+			@content
+	@else if $point == xxs
+		@media (max-width: 413.98px)
 			@content
 
 

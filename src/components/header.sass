@@ -1,31 +1,26 @@
 .header
 	display: block
 	background-color: LemonChiffon
-	font-size: 14px
 	
 	.header-innner
 		border: 1px solid grey
 
 		.header-left
-			//border: 1px solid black
 
 			.logo
-				display: inline-block
-				min-width: 100px
+				width: 100%
+				min-width: 80px
 				max-width: 200px
 
 		.header-right
 
-			.page-btns
+			.page-btns-flex
 				height: 100%
-				font-size: 15px
-
-				@include breakpoint(lg)
-					font-size: 20px
 
 				div
-					@include breakpoint(lg)
-						padding-left: 70px !important
+					font-size: 0.8em
+					padding-left: 1em !important
 
-					@include bootpoint(xs)
-						padding-left: 10px !important
+					@include breakpoint(lg)
+						font-size: 1em
+						padding-left: 1.4em !important
