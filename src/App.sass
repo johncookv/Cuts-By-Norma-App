@@ -1,32 +1,30 @@
-
 // Phone vs non-phone
 @mixin breakpoint($point: lg)
 	@if $point == lg
 		@media (min-width: 768px)
 			@content
-	@if $point == sm
+	@else if $point == sm
 		@media (max-width: 767px)
 			@content
 
 
 // Bootstrap break points
-@mixin breakpoint($point: b-md)
-	@if $point == b-lg
+@mixin bootpoint($point: md)
+	@if $point == lg
 		@media (min-width: 1200px)
 			@content
-	@else if $point == b-md
+	@else if $point == md
 		@media (min-width: 768px) and (max-width: 1199.98px)
 			@content
-	@else if $point == b-sm
+	@else if $point == sm
 		@media (min-width: 576px) and (max-width: 767.98px)
 			@content
-	@else if $point == b-xs
-		@media (min-width: 1px) and (max-width: 575.98pxpx)
+	@else if $point == xs
+		@media (max-width: 575.98px)
 			@content
 
 
-
-//Put global variables up here
+//Put global variables here
 $brandcolor-1: #333
 $brandcolor-2: red
 
@@ -44,7 +42,7 @@ $primary-font: 'Lato', sans-serif
 //Import all your component/template stylesheets here
 @import './components/UtilityNav.sass'
 @import './components/Header.sass'
-@import './components/Header.sass'
+@import './components/Hero.sass'
 @import './components/Footer.sass'
 
 //Put global styles here mobile styles are first
@@ -62,28 +60,28 @@ body
 
 h1
 	color: $brandcolor-1
-	font-size: 40px
+	font-size: 20px
 
 	@include breakpoint(lg)
-		font-size: 40px
+		font-size: 30px
 
 h2
 	color: $brandcolor-1
-	font-size: 32px
+	font-size: 16px
 
 	@include breakpoint(lg)
 		font-size: 32px
 
 h3
 	color: $brandcolor-1
-	font-size: 28px
+	font-size: 14px
 
 	@include breakpoint(lg)
 		font-size: 28px
 
 h4
 	color: $brandcolor-1
-	font-size: 24px
+	font-size: 12px
 
 	@include breakpoint(lg)
 		font-size: 24px
@@ -96,8 +94,12 @@ a
 		color: $brandcolor-1
 	&:hover
 		color: $brandcolor-2
+		text-decoration: none
 	&:active
 		color: $brandcolor-1
 	&:focus
 		outline: 0
+
+.no-wrap
+	white-space: nowrap
 

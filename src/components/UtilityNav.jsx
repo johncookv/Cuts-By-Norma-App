@@ -3,15 +3,17 @@ import React, {Component} from 'react';
 export default class UtilityNav extends Component {
   render() {
     return (
-      <nav className="untility-nav">
-        <div className="container">
+      <div className="utility-nav">
+        <div className="container utility-nav-innner">
           <div className="row">
             <div className="col">
-              <div className="py-3">UtilityNav</div>
+              <div className="py-3">
+                UtilityNav
+              </div>
             </div>
           </div>
         </div>
-      </nav>
+      </div>
     )
   }
 }

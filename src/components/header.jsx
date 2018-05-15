@@ -1,32 +1,29 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
+import { Link } from 'react-router-dom'
 
 export default class Header extends Component {
   render() {
     return (
-      <div className="container">
-       <div className="row align-items-center header">
+      <div className="header">
+        <div className="container header-innner">
+          <div className="row py-4">
 
-        <div className="col-2">
-          <a className="navbar-brand logo" href="/"><img src={require('../assets/img/header-logo.png')} width="170%" alt="Giant Creative Strategy" /></a>
-        </div>
-
-        <div className="col-5 offset-md-5">
-          <div className="row">
-            <div className="col">
-              <a href="/components">Components</a>
+            <div className="col-3 header-left">
+              <Link to={"/"}><img className="logo" src={require('../assets/img/header-logo.png')} alt="Giant Creative Strategy" /></Link>
             </div>
 
-            <div className="col">
-              <a href="/styleguide">Style Guide</a>
-            </div>
+            <div className="col-2"></div>
 
-            <div className="col">
-              <a href="/icons">Icons</a>
+            <div className="col-7 header-right">
+              <div className="d-flex flex-row-reverse align-items-center page-btns">
+                <div className="pl-3"><Link to={"/components"}>Components</Link></div>
+                <div className="pl-3"><Link to={"/styleguide"}><span className="no-wrap">Style Guide</span></Link></div>
+                <div className="pl-3"><Link to={"/icons"}>Icons</Link></div>
+              </div>
             </div>
           </div>
         </div>
-
       </div>
-    </div>)
+    )
   }
 }

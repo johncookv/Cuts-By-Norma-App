@@ -1,17 +1,39 @@
-.untility-nav {
+.utility-nav {
   display: block;
   background-color: aqua;
   font-size: 14px; }
+  .utility-nav .utility-nav-innner {
+    border: 1px solid grey; }
 
 .header {
-  font-size: 24px;
-  margin-top: 20px;
-  margin-bottom: 40px; }
+  display: block;
+  background-color: LemonChiffon;
+  font-size: 14px; }
+  .header .header-innner {
+    border: 1px solid grey; }
+    .header .header-innner .header-left .logo {
+      display: inline-block;
+      min-width: 100px;
+      max-width: 200px; }
+    .header .header-innner .header-right .page-btns {
+      height: 100%;
+      font-size: 15px; }
+      @media (min-width: 768px) {
+        .header .header-innner .header-right .page-btns {
+          font-size: 20px; } }
+      @media (min-width: 768px) {
+        .header .header-innner .header-right .page-btns div {
+          padding-left: 70px !important; } }
+      @media (max-width: 575.98px) {
+        .header .header-innner .header-right .page-btns div {
+          padding-left: 10px !important; } }
 
-.header {
-  font-size: 24px;
-  margin-top: 20px;
-  margin-bottom: 40px; }
+.footer {
+  display: block;
+  background-color: DarkSalmon;
+  font-size: 14px; }
+  .footer .footer-innner {
+    border: 1px solid red; }
 
 body {
   color: #333;
@@ -21,27 +43,43 @@ body {
 
 h1 {
   color: #333;
-  font-size: 40px; }
+  font-size: 20px; }
+  @media (min-width: 768px) {
+    h1 {
+      font-size: 30px; } }
 
 h2 {
   color: #333;
-  font-size: 32px; }
+  font-size: 16px; }
+  @media (min-width: 768px) {
+    h2 {
+      font-size: 32px; } }
 
 h3 {
   color: #333;
-  font-size: 28px; }
+  font-size: 14px; }
+  @media (min-width: 768px) {
+    h3 {
+      font-size: 28px; } }
 
 h4 {
   color: #333;
-  font-size: 24px; }
+  font-size: 12px; }
+  @media (min-width: 768px) {
+    h4 {
+      font-size: 24px; } }
 
 a {
   color: #333; }
   a:link, a:visited {
     color: #333; }
   a:hover {
-    color: red; }
+    color: red;
+    text-decoration: none; }
   a:active {
     color: #333; }
   a:focus {
     outline: 0; }
+
+.no-wrap {
+  white-space: nowrap; }
