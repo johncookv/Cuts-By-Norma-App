@@ -24,13 +24,11 @@
 			@content
 
 
-//Put global variables here
-$brandcolor-1: #333
-$brandcolor-2: red
-
-
+//Global color defs
 $white: #ffffff
 $black: #000000
+$brandcolor-1: #333
+$brandcolor-2: red
 
 
 //Install any Google Font with NPM and Webpack
@@ -39,13 +37,14 @@ $black: #000000
 $primary-font: 'Lato', sans-serif
 
 
-//Import all your component/template stylesheets here
+//Import all your component/template stylesheets
 @import './components/UtilityNav.sass'
 @import './components/Header.sass'
 @import './components/Hero.sass'
 @import './components/Footer.sass'
 
-//Put global styles here mobile styles are first
+
+//Global styles
 *
 
 html
@@ -102,4 +101,5 @@ a
 
 .no-wrap
 	white-space: nowrap
+
 

@@ -5,12 +5,11 @@ export default class StyleGuide extends Component{
     return(
       <div className="container">
         <div className="row">
-
          <div className="col">
 
            <h1 className="display-4">Styleguide</h1>
            <p className="lead">Basic global display, typography, and link styles and colors</p>
-           <h2> Typography</h2>
+           <h2>Typography</h2>
            <p>
              <ul>
                <li>Keep number of fonts to a minimum for loading speed as well as editing/qa (goal: maximum 8 font styles)</li>
@@ -21,7 +20,7 @@ export default class StyleGuide extends Component{
            </p>
 
            <section>
-             <h3> Headings</h3>
+             <h3>Headings</h3>
              <p>HTML headings, <code class="highlighter-rouge">&lt;h1&gt;</code> through <code class="highlighter-rouge">&lt;h6&gt;</code>, are available.</p>
                <table class="table">
                 <tbody>
@@ -50,6 +49,8 @@ export default class StyleGuide extends Component{
             <section>
               <h3>Links Styles</h3>
               <a href="http://">Home</a> | <a href="http://">Patients</a> | <a href="http://">Safety</a> | <a href="http://">Resources</a>
+              <br />
+              <br />
             </section>
 
             <section>
@@ -63,7 +64,7 @@ export default class StyleGuide extends Component{
             </section>
 
             <section className="footnote">
-              <h2>Footnotes</h2>
+              <h3>Footnotes</h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nunc nec est tempor porttitor. Etiam nec neque id lacus blandit ornare vitae id risus. Nulla bibendum gravida posuere. Nullam porta sed eros sed tincidunt. Cras facilisis urna orci, id congue lectus gravida non. Fusce non placerat dolor. Maecenas et dictum neque. Pellentesque augue neque, faucibus et nunc eget, vestibulum hendrerit justo. Vivamus congue vulputate commodo. Etiam facilisis sed ante in semper. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               </p>
@@ -86,10 +87,13 @@ export default class StyleGuide extends Component{
               </ul>
             </section>
 
-            <h2>Colors</h2>
+            <section>
+              <h2>Colors</h2>
+              <br />
+            </section>
 
             <section>
-              <h2> Swatches</h2>
+              <h3>Swatches</h3>
               <ul>
                 <li>Netus et malesuada fames ac. Egestas quis ipsum</li>
                 <li>Suspendisse ultrices gravida dictum</li>
@@ -98,38 +102,33 @@ export default class StyleGuide extends Component{
               </ul>
             </section>
 
+            <br />
+
             <section>
-            <h2>Exmaple</h2>
-            <h3>Nulla a nunc nec est tempor porttitor</h3>
+              <h2>Example</h2>
+              <h3>Nulla a nunc nec est tempor porttitor</h3>
 
-            <div className="row">
-              <div className="col-md">
-                 <h4>Lorem ipsum dolor </h4>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nunc nec est tempor porttitor. Etiam nec neque id lacus blandit ornare vitae id risus. Nulla bibendum gravida posuere. Nullam
-              </div>
-              <div className="col-md">
-                 <h4>Lorem  sit amet</h4>
-                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nunc nec est tempor porttitor. Etiam nec neque id lacus blandit ornare vitae id risus. Nulla bibendum gravida posuere. Nullam
-              </div>
-              <div className="col-md">
-                  <h4>Lorem i sit amet</h4>
+              <div className="row">
+                <div className="col-md">
+                   <h4>Lorem ipsum dolor </h4>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nunc nec est tempor porttitor. Etiam nec neque id lacus blandit ornare vitae id risus. Nulla bibendum gravida posuere. Nullam
+                </div>
+                <div className="col-md">
+                   <h4>Lorem  sit amet</h4>
+                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nunc nec est tempor porttitor. Etiam nec neque id lacus blandit ornare vitae id risus. Nulla bibendum gravida posuere. Nullam
+                </div>
+                <div className="col-md">
+                    <h4>Lorem i sit amet</h4>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla a nunc nec est tempor porttitor. Etiam nec neque id lacus blandit ornare vitae id risus. Nulla bibendum gravida posuere. Nullam
+                </div>
               </div>
-            </div>
-
-
-
             </section>
-
+            <br />
+            <br />
+            <br />
+          </div>
+        </div>
       </div>
-     </div>
-
-    </div>
-
-
-
-
-
     )
   }
 }

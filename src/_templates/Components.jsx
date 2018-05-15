@@ -10,18 +10,22 @@ export default class Components extends Component {
           <h2>Websites</h2>
 
           <ul>
-            <li>ISI Trays</li>
+            <li>ISI Tray</li>
             <li>Dynamic References</li>
-            <li>Modals/Overlays</li>
+            <li>Modal / Overlay</li>
           </ul>
 
           <h2>Convention Panels</h2>
+          <br />
 
           <h2>iOS Apps</h2>
+          <br />
 
           <h2>Banners</h2>
+          <br />
 
           <h2>Emails</h2>
+          <br />
 
           <hr />
 
@@ -47,6 +51,9 @@ export default class Components extends Component {
 
           <p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</p>
 
+          <br />
+          <br />
+          <br />
 
         </div>
       </div>
