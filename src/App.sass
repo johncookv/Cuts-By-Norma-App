@@ -1,136 +1,112 @@
-//Put global variables up here
-$brandcolor_1: #000000
-$brandcolor_2: #333333
-$brandcolor_3: #dddddd
-$brandcolor_4: #000000
-$brandcolor_5: #000000
+// Phone vs non-phone (includes landscape phone)
+@mixin breakpoint($point: lg)
+	@if $point == lg
+		@media (min-width: 768px)
+			@content
+	@else if $point == sm
+		@media (max-width: 767px)
+			@content
 
-$grayscale_1: #ffffff
-$grayscale_2: #dedede
-$grayscale_3: #a9a9a9
-$grayscale_4: #45657f
-$grayscale_5: #ffffff
 
-$error_red: #d0021b
-$confirmation: #6aa723
+// Bootstrap break points (xxs added for portrait phone view)
+@mixin bootpoint($point: md)
+	@if $point == lg
+		@media (min-width: 1200px)
+			@content
+	@else if $point == md
+		@media (min-width: 768px) and (max-width: 1199.98px)
+			@content
+	@else if $point == sm
+		@media (min-width: 576px) and (max-width: 767.98px)
+			@content
+	@else if $point == xs
+		@media (min-width: 414px) and (max-width: 575.98px)
+			@content
+	@else if $point == xxs
+		@media (max-width: 413.98px)
+			@content
 
+
+//Global color defs
 $white: #ffffff
 $black: #000000
+$brandcolor-1: #333
+$brandcolor-2: red
+
 
 //Install any Google Font with NPM and Webpack
 //  1. npm install --save typeface-roboto
 //  2. In index.js: import 'typeface-roboto'
-$font: 'Lato', sans-serif
+$primary-font: 'Lato', sans-serif
 
-//Import all your component/template stylesheets here
-@import './components/header.sass'
-@import './components/main_nav.sass'
-@import './components/utility_nav.sass'
-@import './components/footer.sass'
 
-//Put global styles here mobile styles are first
+//Import all your component/template stylesheets
+@import './components/UtilityNav.sass'
+@import './components/Header.sass'
+@import './components/Hero.sass'
+@import './components/Footer.sass'
+
+
+//Global styles
 *
 
 html
-  position: relative
-  min-height: 100%
+	position: relative
+	min-height: 100%
 
 body
-  margin-bottom: 60px
-  color: $brandcolor_1
-  font-family: $font, sans-serif
-  font-size: 18px
-  font-weight: 400
-  line-height: 1.7
+	color: $brandcolor-1
+	font-family: $primary-font, sans-serif
+	font-size: 16px
+	font-weight: 400
+	margin-bottom: 60px
 
+	@include breakpoint(lg)
+		font-size: 18px
 
 h1
-  color: $brandcolor_1
-  font-size: 40px
-  line-height: 1.7
+	color: $brandcolor-1
+	font-size: 20px
+
+	@include breakpoint(lg)
+		font-size: 30px
 
 h2
-  color: $brandcolor_1
-  font-size: 32px
+	color: $brandcolor-1
+	font-size: 16px
 
+	@include breakpoint(lg)
+		font-size: 32px
 
 h3
-  color: $brandcolor_1
-  font-size: 28px
+	color: $brandcolor-1
+	font-size: 14px
 
+	@include breakpoint(lg)
+		font-size: 28px
 
 h4
-  color: $brandcolor_1
-  font-size: 24px
+	color: $brandcolor-1
+	font-size: 12px
 
+	@include breakpoint(lg)
+		font-size: 24px
 
-.footnotes
-  color: $brandcolor_1
-  font-size: 14px
-
-
-.footnotes h3
-
-.references
-  color: $brandcolor_1
-  font-size: 14px
-
-.references h3
-  font-size: 14px
-  text-transform: uppercase
-
-.isi
-
-.isi h3
 
 a
+	color: $brandcolor-1
+	&:link,
+	&:visited
+		color: $brandcolor-1
+	&:hover
+		color: $brandcolor-2
+		text-decoration: none
+	&:active
+		color: $brandcolor-1
+	&:focus
+		outline: 0
 
-a:hover, a:focus
+.no-wrap
+	white-space: nowrap
 
-a:visited
 
-//Put global styles here for desktop
-@media (max-width: 768px)
-  body
-    font-size: 16px
-    line-height: 1.4
-
-  h1
-    font-size: 40px
-    line-height: 1.4
-
-  h2
-    font-size: 32px
-    line-height: 1.4
-
-  h3
-    font-size: 28px
-    line-height: 1.4
-
-  h4
-    font-size: 28px
-    line-height: 1.4
-
-  .footnotes
-    font-size: 14px
-    line-height: 1.4
-
-  .footnotes h3
-
-  .references
-    font-size: 14px
-    line-height: 1.4
-
-  .references h3
-    font-size: 14px
-    text-transform: uppercase
-
-  .isi
-
-  .isi h3
-
-  a
-
-  a:hover, a:focus
-
-  a:visited
