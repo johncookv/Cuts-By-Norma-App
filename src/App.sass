@@ -1,4 +1,4 @@
-// Phone vs non-phone (including landscape phone)
+// Phone vs non-phone (includes landscape phone)
 @mixin breakpoint($point: lg)
 	@if $point == lg
 		@media (min-width: 768px)
@@ -51,14 +51,18 @@ $primary-font: 'Lato', sans-serif
 *
 
 html
-	// position: relative
-	// min-height: 100%
+	position: relative
+	min-height: 100%
 
 body
 	color: $brandcolor-1
 	font-family: $primary-font, sans-serif
-	font-size: 18px
+	font-size: 16px
 	font-weight: 400
+	margin-bottom: 60px
+
+	@include breakpoint(lg)
+		font-size: 18px
 
 h1
 	color: $brandcolor-1
