@@ -30,7 +30,7 @@ export default class Components extends Component {
           <hr />
 
           <ol>
-            <li>Build the React Component foundationality with it's own Git Repo and detailed README.md</li>
+            <li>Build the React Component foundationally with it's own Git Repo and detailed README.md</li>
             <li>Get feedback from your teammates</li>
             <li>Add the component to this React Starter Kit</li>
             <li>Once we notice their is high usage or before turn into an npm package</li>
