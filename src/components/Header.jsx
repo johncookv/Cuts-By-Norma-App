@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 export default class Header extends Component {
   render() {
     return (
-      <div className="header">
-        <div className="container header-innner">
+      <header>
+        <div className="container">
           <div className="row py-4">
 
             <div className="col-3 header-left">
@@ -23,7 +23,7 @@ export default class Header extends Component {
             </div>
           </div>
         </div>
-      </div>
+      </header>
     )
   }
 }

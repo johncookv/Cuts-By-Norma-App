@@ -1,26 +1,23 @@
-.header
+header
 	display: block
 	background-color: LemonChiffon
 	
-	.header-innner
-		//border: 1px solid grey
+	.header-left
 
-		.header-left
+		.logo
+			width: 100%
+			min-width: 80px
+			max-width: 200px
 
-			.logo
-				width: 100%
-				min-width: 80px
-				max-width: 200px
+	.header-right
 
-		.header-right
+		.page-btns-flex
+			height: 100%
 
-			.page-btns-flex
-				height: 100%
+			div
+				font-size: 0.8em
+				padding-right: 1em !important
 
-				div
-					font-size: 0.8em
-					padding-right: 1em !important
-
-					@include breakpoint(lg)
-						font-size: 1em
-						padding-right: 1.4em !important
+				@include breakpoint(lg)
+					font-size: 1em
+					padding-right: 1.4em !important

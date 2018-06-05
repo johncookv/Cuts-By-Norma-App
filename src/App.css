@@ -3,20 +3,20 @@
   background-color: aqua;
   font-size: 14px; }
 
-.header {
+header {
   display: block;
   background-color: LemonChiffon; }
-  .header .header-innner .header-left .logo {
+  header .header-left .logo {
     width: 100%;
     min-width: 80px;
     max-width: 200px; }
-  .header .header-innner .header-right .page-btns-flex {
+  header .header-right .page-btns-flex {
     height: 100%; }
-    .header .header-innner .header-right .page-btns-flex div {
+    header .header-right .page-btns-flex div {
       font-size: 0.8em;
       padding-right: 1em !important; }
       @media (min-width: 768px) {
-        .header .header-innner .header-right .page-btns-flex div {
+        header .header-right .page-btns-flex div {
           font-size: 1em;
           padding-right: 1.4em !important; } }
 
