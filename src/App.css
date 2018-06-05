@@ -2,27 +2,23 @@
   display: block;
   background-color: aqua;
   font-size: 14px; }
-  .utility-nav .utility-nav-innner {
-    border: 1px solid grey; }
 
 .header {
   display: block;
   background-color: LemonChiffon; }
-  .header .header-innner {
-    border: 1px solid grey; }
-    .header .header-innner .header-left .logo {
-      width: 100%;
-      min-width: 80px;
-      max-width: 200px; }
-    .header .header-innner .header-right .page-btns-flex {
-      height: 100%; }
-      .header .header-innner .header-right .page-btns-flex div {
-        font-size: 0.8em;
-        padding-left: 1em !important; }
-        @media (min-width: 768px) {
-          .header .header-innner .header-right .page-btns-flex div {
-            font-size: 1em;
-            padding-left: 1.4em !important; } }
+  .header .header-innner .header-left .logo {
+    width: 100%;
+    min-width: 80px;
+    max-width: 200px; }
+  .header .header-innner .header-right .page-btns-flex {
+    height: 100%; }
+    .header .header-innner .header-right .page-btns-flex div {
+      font-size: 0.8em;
+      padding-right: 1em !important; }
+      @media (min-width: 768px) {
+        .header .header-innner .header-right .page-btns-flex div {
+          font-size: 1em;
+          padding-right: 1.4em !important; } }
 
 footer {
   position: absolute;
@@ -52,7 +48,8 @@ h1 {
   font-size: 20px; }
   @media (min-width: 768px) {
     h1 {
-      font-size: 30px; } }
+      font-size: 30px;
+      margin-top: 10px; } }
 
 h2 {
   color: #333;
