@@ -73,6 +73,11 @@ export default class Homepage extends Component {
 							<li><strong>Sprint 4 Main Development:</strong> <u>Flow in final manuscript and update art assets</u> leveraging established shell, developed components, design templates and style guide. Using the manuscript as primary source for content and design direction </li>
 							<li><strong>Sprint 5 Review and Code Freeze:</strong> <u>Developed is halted</u> only to fix issues the product being Reviewed, QA, QC and Deploy to Production.</li>
 						</ul>
+
+	          <br />
+	          <br />
+	          <br />
+
 				</div>
 			</div>
 		</div>)

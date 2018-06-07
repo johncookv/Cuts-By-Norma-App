@@ -121,9 +121,12 @@ export default class StyleGuide extends Component{
                 </div>
               </div>
             </section>
+
             <br />
             <br />
             <br />
+            <br />
+            
           </div>
         </div>
       </div>
