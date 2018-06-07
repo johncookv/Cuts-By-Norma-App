@@ -1,6 +1,7 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
+import { withRouter } from 'react-router-dom'
 
-export default class UtilityNav extends Component {
+class UtilityNav extends Component {
   render() {
     return (
       <div className="utility-nav">
@@ -17,3 +18,5 @@ export default class UtilityNav extends Component {
     )
   }
 }
+
+export default withRouter(UtilityNav)

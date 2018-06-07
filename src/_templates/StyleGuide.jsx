@@ -10,19 +10,17 @@ export default class StyleGuide extends Component{
            <h1 className="display-4">Styleguide</h1>
            <p className="lead">Basic global display, typography, and link styles and colors</p>
            <h2>Typography</h2>
-           <p>
-             <ul>
-               <li>Keep number of fonts to a minimum for loading speed as well as editing/qa (goal: maximum 8 font styles)</li>
-               <li>Leverage <a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">Google Fonts</a> customized to include their variations</li>
-               <li>In initial design phase only use fonts that are web-safe / web representative: https://www.cssfontstack.com/  When client has a specified font that is not web-safe we can embed it in images and recommend a web-font replacement for live text.</li>
-               <li>Enable fontswap for hosted fonts with fallback font for a faster meaningful content rendering</li>
-             </ul>
-           </p>
+           <ul>
+             <li>Keep number of fonts to a minimum for loading speed as well as editing/qa (goal: maximum 8 font styles)</li>
+             <li>Leverage <a href="https://fonts.google.com/" target="_blank" rel="noopener noreferrer">Google Fonts</a> customized to include their variations</li>
+             <li>In initial design phase only use fonts that are web-safe / web representative: https://www.cssfontstack.com/  When client has a specified font that is not web-safe we can embed it in images and recommend a web-font replacement for live text.</li>
+             <li>Enable fontswap for hosted fonts with fallback font for a faster meaningful content rendering</li>
+           </ul>
 
            <section>
              <h3>Headings</h3>
-             <p>HTML headings, <code class="highlighter-rouge">&lt;h1&gt;</code> through <code class="highlighter-rouge">&lt;h6&gt;</code>, are available.</p>
-               <table class="table">
+             <p>HTML headings, <code className="highlighter-rouge">&lt;h1&gt;</code> through <code className="highlighter-rouge">&lt;h6&gt;</code>, are available.</p>
+               <table className="table">
                 <tbody>
                   <tr>
                     <td><h1>h1. Bootstrap heading</h1></td>

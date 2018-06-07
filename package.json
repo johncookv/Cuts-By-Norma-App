@@ -10,6 +10,7 @@
     "jquery": "^3.2.1",
     "node-sass": "^4.7.2",
     "nodemon": "^1.12.1",
+    "pubsub-js": "^1.6.0",
     "react": "^16.1.1",
     "react-dom": "^16.1.1",
     "react-particles-js": "^2.1.0",

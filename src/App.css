@@ -73,14 +73,14 @@ h4 {
       font-size: 24px; } }
 
 a {
-  color: #333; }
+  color: #4eab7c; }
   a:link, a:visited {
-    color: #333; }
+    color: #4eab7c; }
   a:hover {
     color: red;
     text-decoration: none; }
   a:active {
-    color: #333; }
+    color: #4eab7c; }
   a:focus {
     outline: 0; }
 

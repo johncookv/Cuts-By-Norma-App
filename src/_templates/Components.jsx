@@ -6,52 +6,48 @@ export default class Components extends Component {
       <div className="row">
         <div className="col">
           <h1 className="display-4">Components</h1>
-
+          <br />
           <h2>Websites</h2>
-
           <ul>
-            <li>ISI Tray</li>
-            <li>Dynamic References</li>
-            <li>Modal / Overlay</li>
+            <li>IsiTray</li>
+            <li>ScrollToTarget</li>
           </ul>
+          <br />
 
           <h2>Convention Panels</h2>
+          <ul>
+            <li>coming soon</li>
+          </ul>
           <br />
 
           <h2>iOS Apps</h2>
+          <ul>
+            <li>coming soon</li>
+          </ul>
           <br />
 
           <h2>Banners</h2>
+          <ul>
+            <li>coming soon</li>
+          </ul>
           <br />
 
           <h2>Emails</h2>
+          <ul>
+            <li>coming soon</li>
+          </ul>
           <br />
 
           <hr />
 
           <ol>
-            <li>Build the React Component foundationally with it's own Git Repo and detailed README.md</li>
-            <li>Get feedback from your teammates</li>
-            <li>Add the component to this React Starter Kit</li>
-            <li>Once we notice their is high usage or before turn into an npm package</li>
+            <li>Build component in <a href="https://github.com/GiantAgency/react-components">React Components git project</a>.</li>
+            <li>On completion add documentation to this <a href="https://github.com/GiantAgency/react-components/blob/master/README.md">README.md</a></li>
+            <li>Get feedback from your teammates.</li>
+            <li>Test component by <strong>temporarily</strong> adding it to this kit to determine if it will be easy for others to add (do not commit).</li>
+            <li>Once we notice if there is high usage, we can turn it into an npm package</li>
           </ol>
 
-          <hr />
-
-          <br />
-          <br />
-
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
-
-          <p>Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.</p>
-
-          <p>Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus.</p>
-
-          <p>Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus.</p>
-
-          <p>Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus. Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Sed fringilla mauris sit amet nibh. Donec sodales sagittis magna. Sed consequat, leo eget bibendum sodales, augue velit cursus nunc,</p>
-
-          <br />
           <br />
           <br />
 
