@@ -9,7 +9,7 @@ export default class Hero extends Component {
 
       <div className="row">
         <div className="col-md">
-          <a className="btn btn-lg btn-outline-success btn-block" href="/" role="button">Components</a>
+          <a className="btn btn-lg btn-outline-success btn-block" href="/components" role="button">Components</a>
         </div>
 
         <div className="col-md">
