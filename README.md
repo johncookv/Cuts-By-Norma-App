@@ -19,9 +19,6 @@ Build for production distribution
 npm run build
 ```
 
-[Documentation Here](https://giantagency.atlassian.net/wiki/spaces/MT/pages/162201601/Bootstrap+and+React.js+Web+Application+Development+Process)
-
-
 # Requirements
 Node v8.9 or higher. You can switch between multiple versions with [Node Version Manager](https://github.com/creationix/nvm)
 
@@ -32,5 +29,3 @@ npm config set @fortawesome:registry https://npm.fontawesome.com/EEFD84F8-907F-4
 ```
 ## PM2 Deployment
 For the most recent `ecosystem.config.js` file and configuration instructions go to https://github.com/GiantAgency/PM2-Deployment-Congifuration
-
-
