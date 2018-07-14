@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 import Homepage from './_templates/Homepage';
 import Order from './components/Order';
@@ -6,6 +7,7 @@ import OrderSummary from './components/OrderSummary';
 import WebcamCapture from './components/WebcamCapture';
 import CustomerInfo from './components/CustomerInfo';
 import Customers from './components/Customers';
+import ThankYou from './components/ThankYou';
 import {DB} from './js/DB';
 import firebase from './config/firebase';
 
@@ -203,51 +205,39 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        {!this.state.isOrderStarted && !this.state.isAdmin &&
-          <Homepage
-            startOrder={this.startOrder}
-            authenticate={this.authenticate}/>
-        }
-        {this.state.isOrderStarted && !this.state.isOrderFinished && !this.state.isCameraLaunched &&
-          <Order
-            DB={this.state.database}
-            currentStep={this.state.currentStep}
-            updateOrder={this.updateOrder}
-            isOrderFinished={this.state.isOrderFinished}
-            launchWebcam={this.launchWebcam}/>
-        }
-        {this.state.isOrderFinished && !this.state.isCustomerInfoLaunched &&
-          <OrderSummary
-            DB={this.state.database}
-            orders={this.state.customer.orders}
-            deleteAndChangeOrder={this.deleteAndChangeOrder}
-            isOrderFinished={this.state.isOrderFinished}
-            updateOrder={this.updateOrder}
-            launchCustomerInfo={this.launchCustomerInfo}
-            addAnotherOrder={this.addAnotherOrder}/>
-        }
-        {this.state.isCameraLaunched &&
-          <WebcamCapture
-            updateOwnShirt={this.updateOwnShirt}/>
-        }
-        {this.state.isCustomerInfoLaunched && !this.state.isCustomerInfoCompleted &&
-          <CustomerInfo
-            completeOrder={this.completeOrder}
-            customer={this.state.customer}/>
-        }
-        {this.state.isCustomerInfoCompleted &&
-          <div>
-            <h4>**Page under construction**</h4>
-            <h1>Thanks for your order!</h1>
-            <button onClick={this.reset}>Start over</button>
-          </div>
-        }
-        {/* ADMIN page */}
-        {!this.state.isOrderStarted && this.state.isAdmin &&
-          <Customers />
-        }
-      </div>
+      <BrowserRouter>
+        <div>
+          <Route exact path="/" render={() =>
+            <Homepage
+              startOrder={this.startOrder}
+              authenticate={this.authenticate} />} />
+          <Route path="/order" render={() =>
+            <Order
+              DB={this.state.database}
+              currentStep={this.state.currentStep}
+              updateOrder={this.updateOrder}
+              isOrderFinished={this.state.isOrderFinished}
+              launchWebcam={this.launchWebcam}/>} />
+          <Route path="/order-summary" render={() =>
+            <OrderSummary
+              DB={this.state.database}
+              orders={this.state.customer.orders}
+              deleteAndChangeOrder={this.deleteAndChangeOrder}
+              isOrderFinished={this.state.isOrderFinished}
+              updateOrder={this.updateOrder}
+              launchCustomerInfo={this.launchCustomerInfo}
+              addAnotherOrder={this.addAnotherOrder}/>} />
+          <Route path="/customer-info" render={() =>
+            <CustomerInfo
+              completeOrder={this.completeOrder}
+              customer={this.state.customer}/>} />
+          <Route path="/thanks" component={ThankYou}/>
+          <Route path="/admin" component={Customers}/>
+          <Route path="/own-shirt" render={() =>
+            <WebcamCapture
+              updateOwnShirt={this.updateOwnShirt}/>}/>
+        </div>
+      </BrowserRouter>
     );
   }
 }

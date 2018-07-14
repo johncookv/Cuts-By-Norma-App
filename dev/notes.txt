@@ -26,3 +26,52 @@ Other Ideas
 -If we can't accept payment, add a question to the form that says Paid? with
 two buttons (yes and no). If they choose yes, ask for pin (which Deri or I will
 put in to confirm they paid).
+
+
+OLD conditional rendering
+/*
+<div>
+  {!this.state.isOrderStarted && !this.state.isAdmin &&
+    <Homepage
+      startOrder={this.startOrder}
+      authenticate={this.authenticate}/>
+  }
+  {this.state.isOrderStarted && !this.state.isOrderFinished && !this.state.isCameraLaunched &&
+    <Order
+      DB={this.state.database}
+      currentStep={this.state.currentStep}
+      updateOrder={this.updateOrder}
+      isOrderFinished={this.state.isOrderFinished}
+      launchWebcam={this.launchWebcam}/>
+  }
+  {this.state.isOrderFinished && !this.state.isCustomerInfoLaunched &&
+    <OrderSummary
+      DB={this.state.database}
+      orders={this.state.customer.orders}
+      deleteAndChangeOrder={this.deleteAndChangeOrder}
+      isOrderFinished={this.state.isOrderFinished}
+      updateOrder={this.updateOrder}
+      launchCustomerInfo={this.launchCustomerInfo}
+      addAnotherOrder={this.addAnotherOrder}/>
+  }
+  {this.state.isCameraLaunched &&
+    <WebcamCapture
+      updateOwnShirt={this.updateOwnShirt}/>
+  }
+  {this.state.isCustomerInfoLaunched && !this.state.isCustomerInfoCompleted &&
+    <CustomerInfo
+      completeOrder={this.completeOrder}
+      customer={this.state.customer}/>
+  }
+  {this.state.isCustomerInfoCompleted &&
+    <div>
+      <h4>**Page under construction**</h4>
+      <h1>Thanks for your order!</h1>
+      <button onClick={this.reset}>Start over</button>
+    </div>
+  }
+  {!this.state.isOrderStarted && this.state.isAdmin &&
+    <Customers />
+  }
+</div>
+ */
