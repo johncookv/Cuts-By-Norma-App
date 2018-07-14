@@ -1,0 +1,28 @@
+TODO
+1. Add code to see image gallery when clicking on image - DONE 6/16/18
+2. Add "Brought my own shirt" option (and think of a good name) - DONE 6/16/18
+3. Add code to launch camera when chosen - DONE 6/17/18; a-b done on 6/19/18
+  a. Take picture
+  b. Show pic
+4. Add checkout button to summary
+5. Create form component for user info
+  a. name (required)
+  b. phone number
+  c. delivery? (yes or no)
+    i. address appears if yes
+  one of the following required
+  d. FB
+  e. Instagram
+  f. Twitter
+  g. Other (ex: Hotel room number, Meeting day/time)
+6. Firebase - Figure out how to save all this data so it can be accessed
+from any device
+7. Update design - look at the images saved on my google images search (on my phone)
+8. Add pictures
+  a. For the shirts, have her take pictures of same design, but diff colors
+
+Other Ideas
+-Find a way to accept payment
+-If we can't accept payment, add a question to the form that says Paid? with
+two buttons (yes and no). If they choose yes, ask for pin (which Deri or I will
+put in to confirm they paid).

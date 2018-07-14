@@ -78,7 +78,7 @@ class App extends Component {
     this.resetOrder();
   }
 
-  determineNextStep = (order) => { 
+  determineNextStep = (order) => {
     let objectArray = Object.values(order);
     let step;
     switch(objectArray.indexOf(null)) {

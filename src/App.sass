@@ -38,15 +38,14 @@ $brandcolor-3: #4eab7c
 //Install any Google Font with NPM and Webpack
 //  1. npm install --save typeface-roboto
 //  2. In index.js: import 'typeface-roboto'
-$primary-font: 'Lato', sans-serif
+$roboto: 'Roboto', sans-serif
 
 
 //Import all your component/template stylesheets
-@import './components/UtilityNav.sass'
-@import './components/Header.sass'
-@import './components/Hero.sass'
-@import './components/Footer.sass'
-
+@import './_templates/Homepage.sass'
+@import './components/Choice.sass'
+@import './components/Order.sass'
+@import './components/WebcamCapture.sass'
 
 //Global styles
 *
@@ -57,7 +56,7 @@ html
 
 body
 	color: $brandcolor-1
-	font-family: $primary-font, sans-serif
+	font-family: $roboto, sans-serif
 	font-size: 16px
 	font-weight: 400
 
@@ -93,6 +92,14 @@ h4
 	@include breakpoint(lg)
 		font-size: 24px
 
+button
+	margin-top: auto
+	background: teal
+	color: white
+	padding: 0.5rem
+	border: none
+	border-radius: 1rem
+	font-size: 1.2rem
 
 a
 	color: $brandcolor-3
@@ -110,4 +117,12 @@ a
 .no-wrap
 	white-space: nowrap
 
+.display-none
+	display: none
 
+.no-scroll
+	overflow: hidden
+	position: fixed
+	top: 0
+	right: 0
+	left: 0

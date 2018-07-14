@@ -1,32 +1,51 @@
-.utility-nav {
-  display: block;
-  background-color: aqua;
-  font-size: 14px; }
+.choice {
+  display: flex;
+  flex-flow: column;
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 2rem; }
+  .choice > h2 {
+    margin: 1rem 1rem 0; }
+  .choice > ul {
+    margin: 0 0 1rem; }
+  .choice > p {
+    margin: 0.25em 1rem 1rem; }
+  .choice > img {
+    order: -1;
+    align-self: center; }
 
-header {
-  display: block;
-  background-color: LemonChiffon; }
-  header .header-left .logo {
-    width: 100%;
-    min-width: 80px;
-    max-width: 200px; }
-  header .header-right .page-btns-flex {
-    height: 100%; }
-    header .header-right .page-btns-flex div {
-      font-size: 0.8em;
-      padding-right: 1em !important; }
-      @media (min-width: 768px) {
-        header .header-right .page-btns-flex div {
-          font-size: 1em;
-          padding-right: 1.4em !important; } }
+.order {
+  box-sizing: border-box; }
+  .order main {
+    max-width: 10000px;
+    margin: 0; }
+  .order article {
+    margin: 0; }
+  .order .choice-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 1rem;
+    font-family: "Roboto", sans-serif;
+    font-size: 80%; }
+  .order .modal-container {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1;
+    height: 100vh; }
+    .order .modal-container .image-gallery {
+      width: 100vw; }
 
-footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  line-height: 60px;
-  background-color: DarkSalmon;
-  font-size: 14px; }
+.webcam-capture {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
 
 html {
   position: relative;
@@ -34,7 +53,7 @@ html {
 
 body {
   color: #333;
-  font-family: "Lato", sans-serif, sans-serif;
+  font-family: "Roboto", sans-serif, sans-serif;
   font-size: 16px;
   font-weight: 400; }
   @media (min-width: 768px) {
@@ -70,6 +89,15 @@ h4 {
     h4 {
       font-size: 24px; } }
 
+button {
+  margin-top: auto;
+  background: teal;
+  color: white;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 1rem;
+  font-size: 1.2rem; }
+
 a {
   color: #4eab7c; }
   a:link, a:visited {
@@ -84,3 +112,13 @@ a {
 
 .no-wrap {
   white-space: nowrap; }
+
+.display-none {
+  display: none; }
+
+.no-scroll {
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0; }
