@@ -6,17 +6,17 @@ import Order from './components/Order';
 import OrderSummary from './components/OrderSummary';
 import WebcamCapture from './components/WebcamCapture';
 import CustomerInfo from './components/CustomerInfo';
+import CustomerOrders from './components/CustomerOrders';
 import Customers from './components/Customers';
 import ThankYou from './components/ThankYou';
 import {DB} from './js/DB';
 import firebase from './config/firebase';
 
 const origState = {
-  isAdmin: false,
   isOrderStarted: false,
   isOrderFinished: false,
-  isCameraLaunched: false,
-  isCustomerInfoLaunched: false,
+  isOwnShirtSelected: false,
+  isCustomerSelected: false,
   database: DB,
   currentOrderIndex: -1,
   currentStep: 0,
@@ -29,17 +29,17 @@ const origState = {
     first: null,
     last: null,
     address: {
-      street1: null,
-      street2: null,
-      city: null,
-      state: null,
-      zip: null,
+      street1: "",
+      street2: "",
+      city: "",
+      state: "",
+      zip: "",
     },
     phone: null,
-    fb: null,
-    instagram: null,
-    twitter: null,
-    other: null,
+    fb: "",
+    instagram: "",
+    twitter: "",
+    other: "",
     orders: [],
   }
 }
@@ -55,15 +55,12 @@ class App extends Component {
     this.addAnotherOrder = this.addAnotherOrder.bind(this);
     this.updateOwnShirt = this.updateOwnShirt.bind(this);
     this.deleteAndChangeOrder = this.deleteAndChangeOrder.bind(this);
+    this.customerOnClick = this.customerOnClick.bind(this);
   }
 
   // done before component mounts
   componentWillMount() {
 
-  }
-
-  authenticate = () => {
-    this.setState({ isAdmin: true });
   }
 
   resetOrder = () => {
@@ -99,13 +96,18 @@ class App extends Component {
     this.setState({ currentStep: step });
     if (step === -1) {
       let index = this.state.currentOrderIndex;
+      console.log("order index: ", index);
       if (index === -1) {
         this.pushToOrders(order);
       } else {
-        // replace element at 'index' with the value of argument 'order'
-        let ordersCopy = this.state.customer.orders.slice();
+        // copy customer with spread operator - https://stackoverflow.com/questions/43040721/how-to-update-a-nested-state-in-react
+        // doesn't deep copy (so be careful with nested objects) - https://bambielli.com/til/2017-01-29-spread-operator-deep-copy/
+        // seems to work here because I'm updating orders array within customer
+        let customerCopy = {...this.state.customer};
+        let ordersCopy = customerCopy.orders.slice();
         ordersCopy.splice(index, 1, order);
-        this.setState({ orders: ordersCopy });
+        customerCopy.orders = ordersCopy;
+        this.setState({ customer: customerCopy });
         this.resetOrder();
       }
       this.setState({
@@ -126,11 +128,12 @@ class App extends Component {
     let orderCopy = Object.assign({}, this.state.order);
     orderCopy[orderKey] = value;
     this.setState({ order: orderCopy });
+    console.log(orderCopy);
     this.determineNextStep(orderCopy);
   }
 
   deleteAndChangeOrder(index) {
-    console.log(this.state.order);
+    console.log(this.state.order, index);
     this.setState({
       currentOrderIndex: index,
       isOrderFinished: false,
@@ -139,7 +142,7 @@ class App extends Component {
   }
 
   launchWebcam = () => {
-    this.setState({ isCameraLaunched: true });
+    this.setState({ isOwnShirtSelected: true });
   }
 
   updateOwnShirt(image) {
@@ -150,22 +153,18 @@ class App extends Component {
     this.setState({
       database: dbCopy,
       order: orderCopy,
-      isCameraLaunched: false,
     });
     this.determineNextStep(orderCopy);
   }
 
- launchCustomerInfo = () => {
-    this.setState({ isCustomerInfoLaunched: true });
-  }
-
-  pushToFirebase = () => {
-    console.log(this.state.customer)
-    // const customersRef = firebase.database().ref('customers');
-    // customersRef.push(this.state.customer);
-  }
+  // pushToFirebase = () => {
+  //   console.log(this.state.customer)
+  //   const customersRef = firebase.database().ref('customers');
+  //   customersRef.push(this.state.customer);
+  // }
 
   setCustomerInfo(info) {
+    // this deep copies customer
     let customerCopy = Object.assign({}, this.state.customer);
     customerCopy.first = info.first;
     customerCopy.last = info.last;
@@ -178,20 +177,19 @@ class App extends Component {
     this.setState({
       customer: customerCopy,
       isCustomerInfoCompleted: true
+    }, () => {
+      // push to firebase after customer is updated
+      const customersRef = firebase.database().ref('customers');
+      customersRef.push(this.state.customer);
     })
   }
 
   completeOrder(info) {
     this.setCustomerInfo(info);
-    this.pushToFirebase();
+    // this.pushToFirebase();
   }
 
   reset = () => {
-    // this first set state is needed
-    // to remove thank you page
-    this.setState({
-      isCustomerInfoCompleted: false
-    })
     this.setState(origState);
   }
 
@@ -203,21 +201,36 @@ class App extends Component {
     })
   }
 
+  customerOnClick(customer) {
+    this.setState({
+      customer: customer,
+      isCustomerSelected: true
+    });
+  }
+
+  backToCustomers = () => {
+    this.setState({ isCustomerSelected: false });
+  }
+
   render() {
+    console.log(this.state)
     return (
       <BrowserRouter>
         <div>
           <Route exact path="/" render={() =>
             <Homepage
               startOrder={this.startOrder}
-              authenticate={this.authenticate} />} />
+              authenticate={this.authenticate}
+              isOrderStarted={this.state.isOrderStarted} />} />
           <Route path="/order" render={() =>
             <Order
               DB={this.state.database}
               currentStep={this.state.currentStep}
               updateOrder={this.updateOrder}
               isOrderFinished={this.state.isOrderFinished}
-              launchWebcam={this.launchWebcam}/>} />
+              launchWebcam={this.launchWebcam}
+              isOwnShirtSelected={this.state.isOwnShirtSelected}
+              isOrderStarted={this.state.isOrderStarted}/>} />
           <Route path="/order-summary" render={() =>
             <OrderSummary
               DB={this.state.database}
@@ -225,14 +238,30 @@ class App extends Component {
               deleteAndChangeOrder={this.deleteAndChangeOrder}
               isOrderFinished={this.state.isOrderFinished}
               updateOrder={this.updateOrder}
-              launchCustomerInfo={this.launchCustomerInfo}
               addAnotherOrder={this.addAnotherOrder}/>} />
           <Route path="/customer-info" render={() =>
             <CustomerInfo
               completeOrder={this.completeOrder}
-              customer={this.state.customer}/>} />
-          <Route path="/thanks" component={ThankYou}/>
-          <Route path="/admin" component={Customers}/>
+              customer={this.state.customer}å
+              isOrderStarted={this.state.isOrderStarted}
+              isCustomerInfoCompleted={this.state.isCustomerInfoCompleted}/>} />
+          <Route path="/thanks" render={() =>
+            <ThankYou
+              reset={this.reset}
+              isOrderStarted={this.state.isOrderStarted}/>}/>
+          <Route path="/admin" render={() =>
+            <Customers
+              isOrderStarted={this.state.isOrderStarted}
+              customerOnClick={this.customerOnClick}
+              isCustomerSelected={this.state.isCustomerSelected}
+              reset={this.reset}/>} />
+          <Route path="/customer-orders" render={() =>
+            <CustomerOrders
+              customer={this.state.customer}
+              DB={DB}
+              isOrderFinished={this.state.isOrderFinished}
+              backToCustomers={this.backToCustomers}
+              isCustomerSelected={this.state.isCustomerSelected}/>} />
           <Route path="/own-shirt" render={() =>
             <WebcamCapture
               updateOwnShirt={this.updateOwnShirt}/>}/>

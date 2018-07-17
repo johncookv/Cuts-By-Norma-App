@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Redirect} from 'react-router-dom';
 import Choice from './Choice';
 import ImageGallery from 'react-image-gallery';
 import '../../node_modules/react-image-gallery/styles/css/image-gallery.css'
@@ -10,6 +11,7 @@ export default class Order extends Component {
     this.state = {
       isGalleryDisplayed: false,
       images: [],
+      isOwnShirtSelected: false,
     }
     this.launchGallery = this.launchGallery.bind(this);
   }
@@ -38,8 +40,20 @@ export default class Order extends Component {
   }
 
   render() {
-    let {DB, currentStep, updateOrder, isOrderFinished, launchWebcam} = this.props;
+    let {DB, isOrderStarted, isOwnShirtSelected, currentStep, updateOrder, isOrderFinished, launchWebcam} = this.props;
     let stepInfo = DB.stepList[currentStep];
+
+    if (isOwnShirtSelected) {
+      return <Redirect to="/own-shirt" />
+    }
+
+    if (isOrderFinished) {
+      return <Redirect to="/order-summary" />
+    }
+
+    if (!isOrderStarted) {
+      return <Redirect to="/" />
+    }
     return (
       <div className={`${this.state.isGalleryDisplayed ? "no-scroll" : ""} order`}>
         <h1>{stepInfo.text}</h1>
