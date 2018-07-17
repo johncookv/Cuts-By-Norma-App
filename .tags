@@ -1,8 +1,3 @@
-.choice	/Users/jvehikite/react/personal/cutsbynorma/src/components/Choice.sass	/^.choice$/;"	function	line:1
-h2	/Users/jvehikite/react/personal/cutsbynorma/src/components/Choice.sass	/^    h2$/;"	function	line:8
-ul	/Users/jvehikite/react/personal/cutsbynorma/src/components/Choice.sass	/^    ul$/;"	function	line:10
-p	/Users/jvehikite/react/personal/cutsbynorma/src/components/Choice.sass	/^    p$/;"	function	line:12
-img	/Users/jvehikite/react/personal/cutsbynorma/src/components/Choice.sass	/^    img$/;"	function	line:14
 const.shirt1	/Users/jvehikite/react/personal/cutsbynorma/src/js/DB.js	/^const shirts = {$/;"	property	line:1
 const.sm	/Users/jvehikite/react/personal/cutsbynorma/src/js/DB.js	/^const sizes = {$/;"	property	line:180
 const.cut1	/Users/jvehikite/react/personal/cutsbynorma/src/js/DB.js	/^const cuts = {$/;"	property	line:218
