@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import {Redirect} from 'react-router-dom';
 import $ from 'jquery';
 
 export default class CustomerInfo extends Component {
@@ -14,7 +15,6 @@ export default class CustomerInfo extends Component {
 
   componentDidMount() {
     window.scrollTo(0,0);
-
   }
 
   formatAndSetPhoneNumber(e) {
@@ -42,15 +42,28 @@ export default class CustomerInfo extends Component {
     this.setState({ isShip: isShip });
   }
 
+  handleSubmit(e, completeOrder) {
+    e.preventDefault();
+    completeOrder(this.state.customer);
+  }
+
   render() {
-    const {completeOrder} = this.props;
+    const {completeOrder, isOrderStarted, isCustomerInfoCompleted} = this.props;
+    if (!isOrderStarted) {
+      return <Redirect to="/" />
+    }
+
+    if (isCustomerInfoCompleted) {
+      return <Redirect to="/thanks" />
+    }
+
     return (
       <div className="customer-info">
         <div className="container">
           <div className="row">
             <div className="col">
               <h1>Please fill out the following info<br/><small>Required fiels marked with *</small></h1>
-              <form onSubmit={() => completeOrder(this.state.customer)}>
+              <form onSubmit={e => this.handleSubmit(e, completeOrder)}>
                 <label>Name*</label>
                 <div className="form-row">
                   <div className="col">
