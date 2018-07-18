@@ -11,38 +11,30 @@ const styles = {
     paddingTop: '56.25%', // 16:9
   },
 };
-/*
-<div>
-      <Card className={classes.card}>
-        <CardMedia
-          className={classes.media}
-          image="/static/images/cards/contemplative-reptile.jpg"
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="headline" component="h2">
-            Lizard
-          </Typography>
-          <Typography component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
-          </Typography>
-        </CardContent>
-        <CardActions>
-          <Button size="small" color="primary">
-            Share
-          </Button>
-          <Button size="small" color="primary">
-            Learn More
-          </Button>
-        </CardActions>
-      </Card>
-    </div>
-*/
+
 class Choice extends Component {
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      isAddButtonDisabled: true,
+      size: "",
+    }
+  }
+
+  sizeOnClick(size) {
+    if (this.state.isAddButtonDisabled) {
+      this.setState({
+        isAddButtonDisabled: false,
+      });
+    }
+    this.setState({
+      size: size
+    })
+  }
+
   render() {
-    let {choice,index,updateOrder,isCustomerSelected,isOrderFinished,launchGallery,launchWebcam} = this.props;
+    let {DB,choice,index,updateOrder,isCustomerSelected,isOrderFinished,launchGallery,launchWebcam,updateSize,currentStep,sizeText,cutText,deleteAndChangeOrder} = this.props;
     const { classes } = this.props;
     return (
       <div>
@@ -58,32 +50,63 @@ class Choice extends Component {
             className={classes.media}
             image={choice.image}
             title={choice.text}
+            onClick={() => launchGallery(choice.orderKey, choice.imageList)}
           />
-          <CardContent>
-            <Typography gutterBottom variant="headline" component="h2">
-              {choice.text}
-            </Typography>
-            <Typography component="p">
-              {choice.description}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small" color="primary">
-              S
-            </Button>
-            <Button size="small" color="primary">
-              M
-            </Button>
-            <Button size="small" color="primary">
-              L
-            </Button>
-            <Button size="small" color="primary">
-              XL
-            </Button>
-            <Button size="small" color="primary">
-              XXL
-            </Button>
-          </CardActions>
+
+          {/* Different card content based on if order is finished */}
+          {isOrderFinished ?
+            // Layout for Summary pages
+            <CardContent>
+              <Typography gutterBottom variant="headline" component="h2">
+                {choice.text}
+              </Typography>
+              <Typography gutterBottom variant="headline" component="h3">
+                Size: {sizeText}
+              </Typography>
+              <Typography gutterBottom variant="headline" component="h3">
+                Cut: {cutText}
+              </Typography>
+            </CardContent>
+              :
+            // Layout for Order page
+            <CardContent>
+              <Typography gutterBottom variant="headline" component="h2">
+                {choice.text}
+              </Typography>
+              <Typography component="p">
+                {choice.description}
+              </Typography>
+            </CardContent>
+          }
+
+          {/* Show size buttons on step 1 of Order page */}
+          {currentStep === 0 &&
+            <CardActions disableActionSpacing={true}>
+              {DB.choices.sizes.map((size,index) => {
+                return (
+                  <Button onClick={() => this.sizeOnClick(size.choiceKey)} size="small" color="primary">
+                    {size.text}
+                  </Button>
+                )
+              })}
+            </CardActions>
+          }
+
+          {/* Different card actions based on if order is finished */}
+          {isOrderFinished ?
+
+            <CardActions>
+              <Button variant="contained" color="primary" fullWidth={true} onClick={() => deleteAndChangeOrder(index)}>
+                Update this Order
+              </Button>
+            </CardActions>
+            :
+            <CardActions>
+              <Button disabled={currentStep === 0 ? this.state.isAddButtonDisabled : false} variant="contained" color="primary" fullWidth={true} onClick={() => (choice.choiceKey === 'ownShirt') ? launchWebcam(this.state.size) : updateOrder(choice.orderKey, choice.choiceKey, this.state.size)}>
+                Add to cart
+              </Button>
+            </CardActions>
+          }
         </Card>
       </div>
     )

@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import $ from 'jquery';
+import AppBar from './AppBar';
 
 export default class CustomerInfo extends Component {
   constructor(props) {
@@ -59,6 +60,7 @@ export default class CustomerInfo extends Component {
 
     return (
       <div className="customer-info">
+        <AppBar {...this.props} />
         <div className="container">
           <div className="row">
             <div className="col">

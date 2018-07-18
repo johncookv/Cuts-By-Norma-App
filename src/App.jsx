@@ -23,8 +23,8 @@ const origState = {
   currentStep: 0,
   order: {
     shirt: null,
-    size: null,
     cut: null,
+    size: null,
   },
   customer: {
     first: null,
@@ -57,6 +57,8 @@ class App extends Component {
     this.updateOwnShirt = this.updateOwnShirt.bind(this);
     this.deleteAndChangeOrder = this.deleteAndChangeOrder.bind(this);
     this.customerOnClick = this.customerOnClick.bind(this);
+    this.updateSize = this.updateSize.bind(this);
+    this.launchWebcam = this.launchWebcam.bind(this);
   }
 
   // done before component mounts
@@ -67,8 +69,8 @@ class App extends Component {
   resetOrder = () => {
     let nullOrder = {
       shirt: null,
+      cut: null,
       size: null,
-      cut: null
     }
     this.setState({ order: nullOrder });
   }
@@ -79,6 +81,7 @@ class App extends Component {
   }
 
   determineNextStep = (order) => {
+    console.log("ORDER: ", order);
     let objectArray = Object.values(order);
     let step;
     switch(objectArray.indexOf(null)) {
@@ -87,9 +90,6 @@ class App extends Component {
         break;
       case 1:
         step = 1;
-        break;
-      case 2:
-        step = 2;
         break;
       default:
         step = -1;
@@ -125,11 +125,13 @@ class App extends Component {
     });
   }
 
-  updateOrder(orderKey, value, orderFinished = false) {
+  updateOrder(orderKey, value, size, orderFinished = false) {
     let orderCopy = Object.assign({}, this.state.order);
     orderCopy[orderKey] = value;
+    if (size !== "") {
+      orderCopy.size = size;
+    }
     this.setState({ order: orderCopy });
-    console.log(orderCopy);
     this.determineNextStep(orderCopy);
   }
 
@@ -142,8 +144,13 @@ class App extends Component {
     });
   }
 
-  launchWebcam = () => {
-    this.setState({ isOwnShirtSelected: true });
+  launchWebcam(size) {
+    let orderCopy = Object.assign({}, this.state.order);
+    orderCopy.size = size;
+    this.setState({
+      isOwnShirtSelected: true,
+      order: orderCopy
+    });
   }
 
   updateOwnShirt(image) {
@@ -191,6 +198,7 @@ class App extends Component {
   }
 
   reset = () => {
+    console.log("RESET!!!");
     this.setState(origState);
   }
 
@@ -213,8 +221,14 @@ class App extends Component {
     this.setState({ isCustomerSelected: false });
   }
 
+  updateSize(size) {
+    let orderCopy = Object.assign({}, this.state.order);
+    orderCopy.size = size;
+    this.setState({ order: orderCopy });
+  }
+
   render() {
-    console.log(this.state)
+    console.log(this.state.order.size);
     return (
       <Fragment>
         <CssBaseline />
@@ -233,7 +247,9 @@ class App extends Component {
                 isOrderFinished={this.state.isOrderFinished}
                 launchWebcam={this.launchWebcam}
                 isOwnShirtSelected={this.state.isOwnShirtSelected}
-                isOrderStarted={this.state.isOrderStarted}/>} />
+                isOrderStarted={this.state.isOrderStarted}
+                updateSize={this.updateSize}
+                reset={this.reset}/>}/>
             <Route path="/order-summary" render={() =>
               <OrderSummary
                 DB={this.state.database}
@@ -241,17 +257,20 @@ class App extends Component {
                 deleteAndChangeOrder={this.deleteAndChangeOrder}
                 isOrderFinished={this.state.isOrderFinished}
                 updateOrder={this.updateOrder}
-                addAnotherOrder={this.addAnotherOrder}/>} />
+                addAnotherOrder={this.addAnotherOrder}
+                reset={this.reset}/>} />
             <Route path="/customer-info" render={() =>
               <CustomerInfo
                 completeOrder={this.completeOrder}
                 customer={this.state.customer}å
                 isOrderStarted={this.state.isOrderStarted}
-                isCustomerInfoCompleted={this.state.isCustomerInfoCompleted}/>} />
+                isCustomerInfoCompleted={this.state.isCustomerInfoCompleted}
+                reset={this.reset}/>} />
             <Route path="/thanks" render={() =>
               <ThankYou
                 reset={this.reset}
-                isOrderStarted={this.state.isOrderStarted}/>}/>
+                isOrderStarted={this.state.isOrderStarted}
+                reset={this.reset}/>}/>
             <Route path="/admin" render={() =>
               <Customers
                 isOrderStarted={this.state.isOrderStarted}
@@ -264,10 +283,12 @@ class App extends Component {
                 DB={DB}
                 isOrderFinished={this.state.isOrderFinished}
                 backToCustomers={this.backToCustomers}
-                isCustomerSelected={this.state.isCustomerSelected}/>} />
+                isCustomerSelected={this.state.isCustomerSelected}
+                reset={this.reset}/>} />
             <Route path="/own-shirt" render={() =>
               <WebcamCapture
-                updateOwnShirt={this.updateOwnShirt}/>}/>
+                updateOwnShirt={this.updateOwnShirt}
+                reset={this.reset}/>}/>
           </div>
         </BrowserRouter>
       </Fragment>

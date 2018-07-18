@@ -1,4 +1,17 @@
 TODO
+Issues to resolve
+1. Fix orders that have multiple OWN SHIRTS
+2. From app launch, finish one order; the order object isn't completely reset (or maybe the orders array from customers)
+3. Get size from step one - DONE
+4. Title bar with home button
+5. Modal after hitting home button
+6. Floating button on bottom right with price
+7. Have Order.jsx track state of selected size in order to have just one add to cart button after at a time
+8. Fix gallery bug - selecting one of the pictures in the preview portion closes modal
+9. Can't add own shirt
+
+
+Pretty much done with this stuff except for styling
 1. Add code to see image gallery when clicking on image - DONE 6/16/18
 2. Add "Brought my own shirt" option (and think of a good name) - DONE 6/16/18
 3. Add code to launch camera when chosen - DONE 6/17/18; a-b done on 6/19/18

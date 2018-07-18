@@ -178,23 +178,23 @@ const shirts = {
 }
 
 const sizes = {
-  sm: {
-    text: "Small",
-    choiceKey: "sm",
+  small: {
+    text: "S",
+    choiceKey: "small",
     orderKey: "size",
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
     imageList: []
   },
-  md: {
-    text: "Medium",
-    choiceKey: "md",
+  medium: {
+    text: "M",
+    choiceKey: "medium",
     orderKey: "size",
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
     imageList: []
   },
-  lg: {
-    text: "Large",
-    choiceKey: "lg",
+  large: {
+    text: "L",
+    choiceKey: "large",
     orderKey: "size",
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
     imageList: []
@@ -331,9 +331,9 @@ const choices = {
     shirts.ownShirt,
   ],
   sizes: [
-    sizes.sm,
-    sizes.md,
-    sizes.lg,
+    sizes.small,
+    sizes.medium,
+    sizes.large,
     sizes.xl,
     sizes.xxl,
   ],
@@ -431,10 +431,6 @@ const steps = {
     choices: choices.shirts
   },
   step1: {
-    text: "Choose your size",
-    choices: choices.sizes
-  },
-  step2: {
     text: "Choose your cut",
     choices: choices.cuts
   },

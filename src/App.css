@@ -1,5 +1,6 @@
 .order {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  margin-top: 4rem; }
   .order main {
     max-width: 10000px;
     margin: 0; }
@@ -24,6 +25,9 @@
     height: 100vh; }
     .order .modal-container .image-gallery {
       width: 100vw; }
+
+.order-summary {
+  margin-top: 4rem; }
 
 .webcam-capture {
   display: flex;
