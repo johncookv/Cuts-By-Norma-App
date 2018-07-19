@@ -198,7 +198,8 @@ class App extends Component {
   }
 
   reset = () => {
-    console.log("RESET!!!");
+    let customerCopy = {...this.state.customer};
+    customerCopy.orders.length = 0;
     this.setState(origState);
   }
 

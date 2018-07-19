@@ -2,9 +2,10 @@ import React,{Component} from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import {Card,CardActions,CardContent,CardMedia,Button,Typography} from '@material-ui/core';
 
+// default maxWidth: 345
 const styles = {
   card: {
-    maxWidth: 345,
+    maxWidth: 410,
   },
   media: {
     height: 0,
