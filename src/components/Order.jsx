@@ -57,7 +57,7 @@ export default class Order extends Component {
     }
     return (
       <div className={`${this.state.isGalleryDisplayed ? "no-scroll" : ""} order`}>
-        <AppBar {...this.props} />
+        <AppBar isGalleryDisplayed={this.state.isGalleryDisplayed} {...this.props} />
         <h1>{stepInfo.text}</h1>
         <main className="choice-container">
 
@@ -73,7 +73,8 @@ export default class Order extends Component {
         })}
         </main>
         {this.state.isGalleryDisplayed &&
-          <div className="modal-container" onClick={this.closeGallery}>
+          <div className="modal-container">
+            <div className="close-container" onClick={this.closeGallery}>CLOSE&nbsp;&nbsp;<span>X</span></div>
             <ImageGallery
               items={this.state.images}
               showFullscreenButton={false}

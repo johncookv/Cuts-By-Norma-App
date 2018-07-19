@@ -7,7 +7,10 @@ const styles = {
     flexGrow: 1,
   },
   justifyContent: {
-    justifyContent: "space-between"
+    justifyContent: "space-between",
+  },
+  hide: {
+    zIndex: 1,
   }
 };
 
@@ -24,7 +27,7 @@ function SimpleAppBar(props) {
   console.log("reset: ", reset)
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" color="primary">
+      <AppBar className={props.isGalleryDisplayed ? classes.hide : ""} position="fixed" color="primary">
         <Toolbar className={classes.justifyContent}>
           <Typography variant="title" color="inherit">
             Cuts by Norma

@@ -4,6 +4,7 @@ const shirts = {
     description: "Shirt Description",
     choiceKey: "shirt1",
     orderKey: "shirt",
+    price: 20,
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
     imageList: [
       {
@@ -25,6 +26,7 @@ const shirts = {
     description: "Shirt Description",
     choiceKey: "shirt2",
     orderKey: "shirt",
+    price: 20,
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
     imageList: [
       {
@@ -46,6 +48,7 @@ const shirts = {
     description: "Shirt Description",
     choiceKey: "shirt3",
     orderKey: "shirt",
+    price: 20,
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
     imageList: [
       {
@@ -67,6 +70,7 @@ const shirts = {
     description: "Shirt Description",
     choiceKey: "shirt4",
     orderKey: "shirt",
+    price: 20,
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
     imageList: [
       {
@@ -88,6 +92,7 @@ const shirts = {
     description: "Shirt Description",
     choiceKey: "shirt5",
     orderKey: "shirt",
+    price: 20,
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
     imageList: [
       {
@@ -109,6 +114,7 @@ const shirts = {
     description: "Shirt Description",
     choiceKey: "shirt6",
     orderKey: "shirt",
+    price: 20,
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
     imageList: [
       {
@@ -130,6 +136,7 @@ const shirts = {
     description: "Shirt Description",
     choiceKey: "shirt7",
     orderKey: "shirt",
+    price: 20,
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
     imageList: [
       {
@@ -151,6 +158,7 @@ const shirts = {
     description: "Shirt Description",
     choiceKey: "shirt8",
     orderKey: "shirt",
+    price: 20,
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
     imageList: [
       {
@@ -172,6 +180,7 @@ const shirts = {
     description: "I brought my own shirt to be cut by Norma!",
     choiceKey: "ownShirt",
     orderKey: "shirt",
+    price: 7,
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
     imageList: []
   }

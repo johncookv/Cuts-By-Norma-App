@@ -25,6 +25,14 @@
     height: 100vh; }
     .order .modal-container .image-gallery {
       width: 100vw; }
+  .order .close-container {
+    z-index: 2;
+    position: absolute;
+    font-size: 20px;
+    font-weight: bold;
+    top: 130px;
+    right: 10px;
+    color: white; }
 
 .order-summary {
   margin-top: 4rem; }
@@ -110,3 +118,6 @@ a {
   top: 0;
   right: 0;
   left: 0; }
+
+.display-4 {
+  font-size: 3.2rem; }

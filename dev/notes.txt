@@ -7,11 +7,11 @@ Issues to resolve
 5. Modal after hitting home button - LOW PRIORITY
 6. Floating button on bottom right with price
 7. Have Order.jsx track state of selected size in order to have just one add to cart button after at a time - LOW PRIORITY
-8. Fix gallery bug - selecting one of the pictures in the preview portion closes modal
+8. Fix gallery bug - selecting one of the pictures in the preview portion closes modal - FIXED
 9. Can't add own shirt
-10. Add close icon to gallery
-11. Add CBN logo
-
+10. Add REAL close icon to gallery
+11. Add CBN logo - FIXED
+12. App bar is visible when gallery is open
 
 Pretty much done with this stuff except for styling
 1. Add code to see image gallery when clicking on image - DONE 6/16/18
