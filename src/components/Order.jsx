@@ -42,7 +42,7 @@ export default class Order extends Component {
   }
 
   render() {
-    let {DB, isOrderStarted, isOwnShirtSelected, currentStep, updateOrder, isOrderFinished, reset} = this.props;
+    let {DB, isOrderStarted, isOwnShirtSelected, currentStep, updateOrder, isOrderFinished} = this.props;
     let stepInfo = DB.stepList[currentStep];
     if (isOwnShirtSelected) {
       return <Redirect to="/own-shirt" />

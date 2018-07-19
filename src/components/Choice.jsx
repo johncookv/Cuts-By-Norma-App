@@ -35,17 +35,10 @@ class Choice extends Component {
   }
 
   render() {
-    let {DB,choice,index,updateOrder,isCustomerSelected,isOrderFinished,launchGallery,launchWebcam,updateSize,currentStep,sizeText,cutText,deleteAndChangeOrder} = this.props;
+    let {DB,choice,index,updateOrder,isOrderFinished,launchGallery,launchWebcam,currentStep,sizeText,cutText,deleteAndChangeOrder} = this.props;
     const { classes } = this.props;
     return (
       <div>
-        {/* <article key={`article-${index}`} className="choice">
-          <h2 key={`h2-${index}`}>{choice.text}</h2>
-          <p key={`p-${index}`}>{choice.description}</p>
-          <img key={`img-${index}`} src={choice.image} alt={choice.text} onClick={() => launchGallery(choice.orderKey, choice.imageList)}/>
-            <button key={`btn-${index}`} onClick={() => (choice.choiceKey === 'ownShirt') ? launchWebcam() : updateOrder(choice.orderKey, choice.choiceKey)}>Select</button>
-
-        </article> */}
         <Card className={classes.card}>
           <CardMedia
             className={classes.media}

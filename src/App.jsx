@@ -270,8 +270,7 @@ class App extends Component {
             <Route path="/thanks" render={() =>
               <ThankYou
                 reset={this.reset}
-                isOrderStarted={this.state.isOrderStarted}
-                reset={this.reset}/>}/>
+                isOrderStarted={this.state.isOrderStarted}/>}/>
             <Route path="/admin" render={() =>
               <Customers
                 isOrderStarted={this.state.isOrderStarted}

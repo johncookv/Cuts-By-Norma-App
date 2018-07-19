@@ -11,7 +11,7 @@ Issues to resolve
 9. Can't add own shirt
 10. Add REAL close icon to gallery
 11. Add CBN logo - FIXED
-12. App bar is visible when gallery is open
+12. App bar is visible when gallery is open - FIXED
 
 Pretty much done with this stuff except for styling
 1. Add code to see image gallery when clicking on image - DONE 6/16/18
