@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import firebase from '../config/firebase';
+import AppBar from './AppBar'
 
 
 export default class extends Component {
@@ -42,6 +43,8 @@ export default class extends Component {
     }
     return (
       <div className="customers">
+        <AppBar {...this.props} />
+
         <div className="container">
           {this.state.customers.length === 0 ?
             <h1>Loading...</h1>
@@ -61,7 +64,7 @@ export default class extends Component {
                   </div>
                 )
               })}
-              <Link to="/" onClick={this.props.reset}><button>Go Home</button></Link>
+              {/* <Link to="/" onClick={this.props.reset}><button>Go Home</button></Link> */}
             </div>
           }
         </div>

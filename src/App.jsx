@@ -194,6 +194,7 @@ class App extends Component {
   }
 
   reset = () => {
+    console.log("reset called")
     let customerCopy = {...this.state.customer};
     customerCopy.orders.length = 0;
     this.setState(origState);
@@ -275,7 +276,7 @@ class App extends Component {
               <CustomerOrders
                 customer={this.state.customer}
                 DB={DB}
-                isOrderFinished={this.state.isOrderFinished}
+                isOrderFinished={true}
                 backToCustomers={this.backToCustomers}
                 isCustomerSelected={this.state.isCustomerSelected}
                 reset={this.reset}/>} />

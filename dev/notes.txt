@@ -9,14 +9,15 @@ Issues to resolve
 7. Have Order.jsx track state of selected size in order to have just one add to cart button after at a time - LOW PRIORITY
 8. Fix gallery bug - selecting one of the pictures in the preview portion closes modal - FIXED
 9. Can't add own shirt - FIXED
-10. Add REAL close icon to gallery
+10. Add REAL close icon to gallery - MEDIUM PRIORITY
 11. Add CBN logo - FIXED
 12. App bar is visible when gallery is open - FIXED
 13. Add either appbar or backdrop to webcam - LOW PRIORITY
-14. Add app bar to admin pages
-15. Fix crash in CustomerOrders page
-
-
+14. Add app bar to admin pages - FIXED
+15. Fix crash in CustomerOrders page - FIXED
+16. Bounce scroll inside main container (so app bar doesn't bounce) - LOW PRIORITY
+17. Make into an app in Android/iOS app store - LOW PRIORITY
+18.
 
 
 Pretty much done with this stuff except for styling

@@ -5,7 +5,7 @@ import {Card,CardActions,CardContent,CardMedia,Button,Typography} from '@materia
 // default maxWidth: 345
 const styles = {
   card: {
-    maxWidth: 410,
+    maxWidth: 411,
   },
   media: {
     height: 0,

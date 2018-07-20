@@ -12,27 +12,6 @@
     grid-gap: 1rem;
     font-family: "Roboto", sans-serif;
     font-size: 80%; }
-  .order .modal-container {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1;
-    height: 100vh; }
-    .order .modal-container .image-gallery {
-      width: 100vw; }
-  .order .close-container {
-    z-index: 2;
-    position: absolute;
-    font-size: 20px;
-    font-weight: bold;
-    top: 130px;
-    right: 10px;
-    color: white; }
 
 .order-summary {
   margin-top: 4rem; }
@@ -95,16 +74,7 @@ button {
   font-size: 1.2rem; }
 
 a {
-  color: #4eab7c; }
-  a:link, a:visited {
-    color: #4eab7c; }
-  a:hover {
-    color: red;
-    text-decoration: none; }
-  a:active {
-    color: #4eab7c; }
-  a:focus {
-    outline: 0; }
+  color: inherit; }
 
 .no-wrap {
   white-space: nowrap; }
@@ -121,3 +91,29 @@ a {
 
 .display-4 {
   font-size: 3.2rem; }
+
+.customers {
+  margin-top: 4rem; }
+
+.modal-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+  height: 100vh; }
+  .modal-container .image-gallery {
+    width: 100vw; }
+
+.close-container {
+  z-index: 2;
+  position: absolute;
+  font-size: 20px;
+  font-weight: bold;
+  top: 130px;
+  right: 10px;
+  color: white; }

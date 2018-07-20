@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import { withStyles } from '@material-ui/core/styles';
 import { AppBar, SvgIcon, Toolbar, Typography } from '@material-ui/core';
 
@@ -31,7 +32,7 @@ function SimpleAppBar(props) {
           <Typography variant="title" color="inherit">
             Cuts by Norma
           </Typography>
-          <HomeIcon color="default" onClick={reset} />
+          <Link to="/"><HomeIcon color="default" onClick={reset} /></Link>
         </Toolbar>
       </AppBar>
     </div>
