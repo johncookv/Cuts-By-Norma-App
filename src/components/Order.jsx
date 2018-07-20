@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
+// import {Close} from '@material-ui/icons'
 import Choice from './Choice';
 import AppBar from './AppBar'
 

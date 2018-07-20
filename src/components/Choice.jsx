@@ -11,6 +11,9 @@ const styles = {
     height: 0,
     paddingTop: '56.25%', // 16:9
   },
+  dNone: {
+    display: "none",
+  }
 };
 
 class Choice extends Component {
@@ -36,7 +39,7 @@ class Choice extends Component {
 
   render() {
     let {DB,choice,index,updateOrder,isOrderFinished,launchGallery,launchWebcam,
-      currentStep,sizeText,cut,deleteAndChangeOrder,ownShirtImage} = this.props;
+      currentStep,sizeText,cut,deleteAndChangeOrder,ownShirtImage,isCustomerSelected} = this.props;
     const { classes } = this.props;
     return (
       <div>
@@ -100,7 +103,7 @@ class Choice extends Component {
           {/* Different card actions based on if order is finished */}
           {isOrderFinished ?
 
-            <CardActions>
+            <CardActions className={isCustomerSelected ? classes.dNone : ""}>
               <Button variant="contained" color="primary" fullWidth={true} onClick={() => deleteAndChangeOrder(index)}>
                 Update this Order
               </Button>
