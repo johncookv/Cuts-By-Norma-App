@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css';
 import Homepage from './_templates/Homepage';
@@ -11,6 +11,7 @@ import Customers from './components/Customers';
 import ThankYou from './components/ThankYou';
 import {DB} from './js/DB';
 import firebase from './config/firebase';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 const origState = {
   isOrderStarted: false,
@@ -22,8 +23,9 @@ const origState = {
   currentStep: 0,
   order: {
     shirt: null,
-    size: null,
     cut: null,
+    size: null,
+    ownShirtImage: "",
   },
   customer: {
     first: null,
@@ -56,6 +58,8 @@ class App extends Component {
     this.updateOwnShirt = this.updateOwnShirt.bind(this);
     this.deleteAndChangeOrder = this.deleteAndChangeOrder.bind(this);
     this.customerOnClick = this.customerOnClick.bind(this);
+    this.updateSize = this.updateSize.bind(this);
+    this.launchWebcam = this.launchWebcam.bind(this);
   }
 
   // done before component mounts
@@ -66,8 +70,8 @@ class App extends Component {
   resetOrder = () => {
     let nullOrder = {
       shirt: null,
+      cut: null,
       size: null,
-      cut: null
     }
     this.setState({ order: nullOrder });
   }
@@ -87,16 +91,12 @@ class App extends Component {
       case 1:
         step = 1;
         break;
-      case 2:
-        step = 2;
-        break;
       default:
         step = -1;
     }
     this.setState({ currentStep: step });
     if (step === -1) {
       let index = this.state.currentOrderIndex;
-      console.log("order index: ", index);
       if (index === -1) {
         this.pushToOrders(order);
       } else {
@@ -124,16 +124,17 @@ class App extends Component {
     });
   }
 
-  updateOrder(orderKey, value, orderFinished = false) {
+  updateOrder(orderKey, value, size, orderFinished = false) {
     let orderCopy = Object.assign({}, this.state.order);
     orderCopy[orderKey] = value;
+    if (size !== "") {
+      orderCopy.size = size;
+    }
     this.setState({ order: orderCopy });
-    console.log(orderCopy);
     this.determineNextStep(orderCopy);
   }
 
   deleteAndChangeOrder(index) {
-    console.log(this.state.order, index);
     this.setState({
       currentOrderIndex: index,
       isOrderFinished: false,
@@ -141,24 +142,27 @@ class App extends Component {
     });
   }
 
-  launchWebcam = () => {
-    this.setState({ isOwnShirtSelected: true });
+  launchWebcam(size) {
+    let orderCopy = Object.assign({}, this.state.order);
+    orderCopy.size = size;
+    this.setState({
+      isOwnShirtSelected: true,
+      order: orderCopy
+    });
   }
 
   updateOwnShirt(image) {
-    let dbCopy = Object.assign({},this.state.database);
-    dbCopy.shirts.ownShirt.image = image;
     let orderCopy = Object.assign({}, this.state.order);
     orderCopy.shirt = 'ownShirt';
+    orderCopy.ownShirtImage = image;
     this.setState({
-      database: dbCopy,
       order: orderCopy,
+      isOwnShirtSelected: false,
+      currentStep: 1,
     });
-    this.determineNextStep(orderCopy);
   }
 
   // pushToFirebase = () => {
-  //   console.log(this.state.customer)
   //   const customersRef = firebase.database().ref('customers');
   //   customersRef.push(this.state.customer);
   // }
@@ -190,11 +194,13 @@ class App extends Component {
   }
 
   reset = () => {
+    console.log("reset called")
+    let customerCopy = {...this.state.customer};
+    customerCopy.orders.length = 0;
     this.setState(origState);
   }
 
   addAnotherOrder = () => {
-    console.log(this.state.order);
     this.setState({
       isOrderFinished: false,
       currentStep: 0,
@@ -212,61 +218,76 @@ class App extends Component {
     this.setState({ isCustomerSelected: false });
   }
 
+  updateSize(size) {
+    let orderCopy = Object.assign({}, this.state.order);
+    orderCopy.size = size;
+    this.setState({ order: orderCopy });
+  }
+
   render() {
-    console.log(this.state)
     return (
-      <BrowserRouter>
-        <div>
-          <Route exact path="/" render={() =>
-            <Homepage
-              startOrder={this.startOrder}
-              authenticate={this.authenticate}
-              isOrderStarted={this.state.isOrderStarted} />} />
-          <Route path="/order" render={() =>
-            <Order
-              DB={this.state.database}
-              currentStep={this.state.currentStep}
-              updateOrder={this.updateOrder}
-              isOrderFinished={this.state.isOrderFinished}
-              launchWebcam={this.launchWebcam}
-              isOwnShirtSelected={this.state.isOwnShirtSelected}
-              isOrderStarted={this.state.isOrderStarted}/>} />
-          <Route path="/order-summary" render={() =>
-            <OrderSummary
-              DB={this.state.database}
-              orders={this.state.customer.orders}
-              deleteAndChangeOrder={this.deleteAndChangeOrder}
-              isOrderFinished={this.state.isOrderFinished}
-              updateOrder={this.updateOrder}
-              addAnotherOrder={this.addAnotherOrder}/>} />
-          <Route path="/customer-info" render={() =>
-            <CustomerInfo
-              completeOrder={this.completeOrder}
-              customer={this.state.customer}å
-              isOrderStarted={this.state.isOrderStarted}
-              isCustomerInfoCompleted={this.state.isCustomerInfoCompleted}/>} />
-          <Route path="/thanks" render={() =>
-            <ThankYou
-              reset={this.reset}
-              isOrderStarted={this.state.isOrderStarted}/>}/>
-          <Route path="/admin" render={() =>
-            <Customers
-              isOrderStarted={this.state.isOrderStarted}
-              customerOnClick={this.customerOnClick}
-              isCustomerSelected={this.state.isCustomerSelected}
-              reset={this.reset}/>} />
-          <Route path="/customer-orders" render={() =>
-            <CustomerOrders
-              customer={this.state.customer}
-              DB={DB}
-              isOrderFinished={this.state.isOrderFinished}
-              backToCustomers={this.backToCustomers}
-              isCustomerSelected={this.state.isCustomerSelected}/>} />
-          <Route path="/own-shirt" render={() =>
-            <WebcamCapture
-              updateOwnShirt={this.updateOwnShirt}/>}/>
-        </div>
-      </BrowserRouter>
+      <Fragment>
+        <CssBaseline />
+        <BrowserRouter>
+          <div>
+            <Route exact path="/" render={() =>
+              <Homepage
+                startOrder={this.startOrder}
+                authenticate={this.authenticate}
+                isOrderStarted={this.state.isOrderStarted} />} />
+            <Route path="/order" render={() =>
+              <Order
+                DB={this.state.database}
+                currentStep={this.state.currentStep}
+                updateOrder={this.updateOrder}
+                isOrderFinished={this.state.isOrderFinished}
+                launchWebcam={this.launchWebcam}
+                isOwnShirtSelected={this.state.isOwnShirtSelected}
+                isOrderStarted={this.state.isOrderStarted}
+                updateSize={this.updateSize}
+                reset={this.reset}/>}/>
+            <Route path="/order-summary" render={() =>
+              <OrderSummary
+                DB={this.state.database}
+                orders={this.state.customer.orders}
+                deleteAndChangeOrder={this.deleteAndChangeOrder}
+                isOrderFinished={this.state.isOrderFinished}
+                updateOrder={this.updateOrder}
+                addAnotherOrder={this.addAnotherOrder}
+                reset={this.reset}/>} />
+            <Route path="/customer-info" render={() =>
+              <CustomerInfo
+                completeOrder={this.completeOrder}
+                customer={this.state.customer}å
+                isOrderStarted={this.state.isOrderStarted}
+                isCustomerInfoCompleted={this.state.isCustomerInfoCompleted}
+                reset={this.reset}/>} />
+            <Route path="/thanks" render={() =>
+              <ThankYou
+                reset={this.reset}
+                isOrderStarted={this.state.isOrderStarted}/>}/>
+            <Route path="/admin" render={() =>
+              <Customers
+                isOrderStarted={this.state.isOrderStarted}
+                customerOnClick={this.customerOnClick}
+                isCustomerSelected={this.state.isCustomerSelected}
+                reset={this.reset}/>} />
+            <Route path="/customer-orders" render={() =>
+              <CustomerOrders
+                customer={this.state.customer}
+                DB={DB}
+                isOrderFinished={true}
+                backToCustomers={this.backToCustomers}
+                isCustomerSelected={this.state.isCustomerSelected}
+                reset={this.reset}/>} />
+            <Route path="/own-shirt" render={() =>
+              <WebcamCapture
+                updateOwnShirt={this.updateOwnShirt}
+                reset={this.reset}
+                isOwnShirtSelected={this.state.isOwnShirtSelected}/>}/>
+          </div>
+        </BrowserRouter>
+      </Fragment>
     );
   }
 }

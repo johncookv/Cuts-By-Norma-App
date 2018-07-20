@@ -1,21 +1,6 @@
-.choice {
-  display: flex;
-  flex-flow: column;
-  border: 1px solid black;
-  border-radius: 1rem;
-  padding: 2rem; }
-  .choice > h2 {
-    margin: 1rem 1rem 0; }
-  .choice > ul {
-    margin: 0 0 1rem; }
-  .choice > p {
-    margin: 0.25em 1rem 1rem; }
-  .choice > img {
-    order: -1;
-    align-self: center; }
-
 .order {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  margin-top: 4rem; }
   .order main {
     max-width: 10000px;
     margin: 0; }
@@ -27,19 +12,9 @@
     grid-gap: 1rem;
     font-family: "Roboto", sans-serif;
     font-size: 80%; }
-  .order .modal-container {
-    position: fixed;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1;
-    height: 100vh; }
-    .order .modal-container .image-gallery {
-      width: 100vw; }
+
+.order-summary {
+  margin-top: 4rem; }
 
 .webcam-capture {
   display: flex;
@@ -99,16 +74,7 @@ button {
   font-size: 1.2rem; }
 
 a {
-  color: #4eab7c; }
-  a:link, a:visited {
-    color: #4eab7c; }
-  a:hover {
-    color: red;
-    text-decoration: none; }
-  a:active {
-    color: #4eab7c; }
-  a:focus {
-    outline: 0; }
+  color: inherit; }
 
 .no-wrap {
   white-space: nowrap; }
@@ -122,3 +88,32 @@ a {
   top: 0;
   right: 0;
   left: 0; }
+
+.display-4 {
+  font-size: 3.2rem; }
+
+.customers {
+  margin-top: 4rem; }
+
+.modal-container {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 1;
+  height: 100vh; }
+  .modal-container .image-gallery {
+    width: 100vw; }
+
+.close-container {
+  z-index: 2;
+  position: absolute;
+  font-size: 20px;
+  font-weight: bold;
+  top: 130px;
+  right: 10px;
+  color: white; }

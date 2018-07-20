@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {Redirect} from 'react-router-dom';
 import Webcam from 'react-webcam';
 
 export default class WebcamCapture extends Component {
@@ -12,6 +13,9 @@ export default class WebcamCapture extends Component {
   };
 
   render() {
+    if (!this.props.isOwnShirtSelected) {
+      return <Redirect to="/order" />
+    }
     return (
       <div className="webcam-capture">
         <Webcam

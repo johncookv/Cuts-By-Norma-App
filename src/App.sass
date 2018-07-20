@@ -45,6 +45,7 @@ $roboto: 'Roboto', sans-serif
 @import './_templates/Homepage.sass'
 @import './components/Choice.sass'
 @import './components/Order.sass'
+@import './components/OrderSummary.sass'
 @import './components/WebcamCapture.sass'
 
 //Global styles
@@ -102,17 +103,7 @@ button
 	font-size: 1.2rem
 
 a
-	color: $brandcolor-3
-	&:link,
-	&:visited
-		color: $brandcolor-3
-	&:hover
-		color: $brandcolor-2
-		text-decoration: none
-	&:active
-		color: $brandcolor-3
-	&:focus
-		outline: 0
+	color: inherit
 
 .no-wrap
 	white-space: nowrap
@@ -126,3 +117,31 @@ a
 	top: 0
 	right: 0
 	left: 0
+
+.display-4
+	font-size: 3.2rem
+
+.customers
+	margin-top: 4rem
+
+.modal-container
+	position: fixed
+	display: flex
+	justify-content: center
+	align-items: center
+	top: 0
+	left: 0
+	right: 0
+	background-color: rgba(0,0,0,0.8)
+	z-index: 1
+	height: 100vh
+	.image-gallery
+		width: 100vw
+.close-container
+	z-index: 2
+	position: absolute
+	font-size: 20px
+	font-weight: bold
+	top: 130px
+	right: 10px
+	color: white

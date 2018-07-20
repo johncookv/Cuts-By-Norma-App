@@ -1,4 +1,26 @@
 TODO
+Issues to resolve
+1. Fix orders that have multiple OWN SHIRTS - FIXED
+2. From app launch, finish one order; the order object isn't completely reset (or maybe the orders array from customers) - FIXED
+3. Get size from step one - FIXED
+4. Title bar with home button - FIXED
+5. Modal after hitting home button - LOW PRIORITY
+6. Floating button on bottom right with price
+7. Have Order.jsx track state of selected size in order to have just one add to cart button after at a time - LOW PRIORITY
+8. Fix gallery bug - selecting one of the pictures in the preview portion closes modal - FIXED
+9. Can't add own shirt - FIXED
+10. Add REAL close icon to gallery - MEDIUM PRIORITY
+11. Add CBN logo - FIXED
+12. App bar is visible when gallery is open - FIXED
+13. Add either appbar or backdrop to webcam - LOW PRIORITY
+14. Add app bar to admin pages - FIXED
+15. Fix crash in CustomerOrders page - FIXED
+16. Bounce scroll inside main container (so app bar doesn't bounce) - LOW PRIORITY
+17. Make into an app in Android/iOS app store - LOW PRIORITY
+18.
+
+
+Pretty much done with this stuff except for styling
 1. Add code to see image gallery when clicking on image - DONE 6/16/18
 2. Add "Brought my own shirt" option (and think of a good name) - DONE 6/16/18
 3. Add code to launch camera when chosen - DONE 6/17/18; a-b done on 6/19/18

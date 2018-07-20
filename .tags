@@ -1,21 +1,16 @@
-.choice	/Users/jvehikite/react/personal/cutsbynorma/src/components/Choice.sass	/^.choice$/;"	function	line:1
-h2	/Users/jvehikite/react/personal/cutsbynorma/src/components/Choice.sass	/^    h2$/;"	function	line:8
-ul	/Users/jvehikite/react/personal/cutsbynorma/src/components/Choice.sass	/^    ul$/;"	function	line:10
-p	/Users/jvehikite/react/personal/cutsbynorma/src/components/Choice.sass	/^    p$/;"	function	line:12
-img	/Users/jvehikite/react/personal/cutsbynorma/src/components/Choice.sass	/^    img$/;"	function	line:14
 const.shirt1	/Users/jvehikite/react/personal/cutsbynorma/src/js/DB.js	/^const shirts = {$/;"	property	line:1
-const.sm	/Users/jvehikite/react/personal/cutsbynorma/src/js/DB.js	/^const sizes = {$/;"	property	line:180
+const.small	/Users/jvehikite/react/personal/cutsbynorma/src/js/DB.js	/^const sizes = {$/;"	property	line:180
 const.cut1	/Users/jvehikite/react/personal/cutsbynorma/src/js/DB.js	/^const cuts = {$/;"	property	line:218
 const.shirts	/Users/jvehikite/react/personal/cutsbynorma/src/js/DB.js	/^const choices = {$/;"	property	line:321
 const.step0	/Users/jvehikite/react/personal/cutsbynorma/src/js/DB.js	/^const steps = {$/;"	property	line:428
 .order	/Users/jvehikite/react/personal/cutsbynorma/src/components/Order.sass	/^.order$/;"	function	line:1
-main	/Users/jvehikite/react/personal/cutsbynorma/src/components/Order.sass	/^  main$/;"	function	line:4
-article	/Users/jvehikite/react/personal/cutsbynorma/src/components/Order.sass	/^  article$/;"	function	line:7
-html	/Users/jvehikite/react/personal/cutsbynorma/src/App.sass	/^html$/;"	function	line:53
-body	/Users/jvehikite/react/personal/cutsbynorma/src/App.sass	/^body$/;"	function	line:57
-h1	/Users/jvehikite/react/personal/cutsbynorma/src/App.sass	/^h1$/;"	function	line:66
-h2	/Users/jvehikite/react/personal/cutsbynorma/src/App.sass	/^h2$/;"	function	line:74
-h3	/Users/jvehikite/react/personal/cutsbynorma/src/App.sass	/^h3$/;"	function	line:81
-h4	/Users/jvehikite/react/personal/cutsbynorma/src/App.sass	/^h4$/;"	function	line:88
-button	/Users/jvehikite/react/personal/cutsbynorma/src/App.sass	/^button$/;"	function	line:95
-a	/Users/jvehikite/react/personal/cutsbynorma/src/App.sass	/^a$/;"	function	line:104
+main	/Users/jvehikite/react/personal/cutsbynorma/src/components/Order.sass	/^  main$/;"	function	line:5
+article	/Users/jvehikite/react/personal/cutsbynorma/src/components/Order.sass	/^  article$/;"	function	line:8
+html	/Users/jvehikite/react/personal/cutsbynorma/src/App.sass	/^html$/;"	function	line:54
+body	/Users/jvehikite/react/personal/cutsbynorma/src/App.sass	/^body$/;"	function	line:58
+h1	/Users/jvehikite/react/personal/cutsbynorma/src/App.sass	/^h1$/;"	function	line:67
+h2	/Users/jvehikite/react/personal/cutsbynorma/src/App.sass	/^h2$/;"	function	line:75
+h3	/Users/jvehikite/react/personal/cutsbynorma/src/App.sass	/^h3$/;"	function	line:82
+h4	/Users/jvehikite/react/personal/cutsbynorma/src/App.sass	/^h4$/;"	function	line:89
+button	/Users/jvehikite/react/personal/cutsbynorma/src/App.sass	/^button$/;"	function	line:96
+a	/Users/jvehikite/react/personal/cutsbynorma/src/App.sass	/^a$/;"	function	line:105

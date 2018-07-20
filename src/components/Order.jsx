@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {Redirect} from 'react-router-dom';
-import Choice from './Choice';
 import ImageGallery from 'react-image-gallery';
+import Choice from './Choice';
+import AppBar from './AppBar'
+
 import '../../node_modules/react-image-gallery/styles/css/image-gallery.css'
 
 export default class Order extends Component {
@@ -20,11 +22,11 @@ export default class Order extends Component {
     window.scrollTo(0,0);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props !== nextProps) {
-      window.scrollTo(0,0);
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   if (this.props !== nextProps) {
+  //     window.scrollTo(0,0);
+  //   }
+  // }
 
   launchGallery(isImages = true, images) {
     if (isImages) {
@@ -40,9 +42,8 @@ export default class Order extends Component {
   }
 
   render() {
-    let {DB, isOrderStarted, isOwnShirtSelected, currentStep, updateOrder, isOrderFinished, launchWebcam} = this.props;
+    let {DB, isOrderStarted, isOwnShirtSelected, currentStep, updateOrder, isOrderFinished} = this.props;
     let stepInfo = DB.stepList[currentStep];
-
     if (isOwnShirtSelected) {
       return <Redirect to="/own-shirt" />
     }
@@ -56,24 +57,24 @@ export default class Order extends Component {
     }
     return (
       <div className={`${this.state.isGalleryDisplayed ? "no-scroll" : ""} order`}>
+        <AppBar isGalleryDisplayed={this.state.isGalleryDisplayed} {...this.props} />
         <h1>{stepInfo.text}</h1>
         <main className="choice-container">
 
         {stepInfo.choices.map((choice, index) => {
           return (
             <Choice
-              key={index}
               choice={choice}
               index={index}
               updateOrder={updateOrder}
-              isOrderFinished={isOrderFinished}
               launchGallery={this.launchGallery}
-              launchWebcam={launchWebcam} />
+              {...this.props}/>
           );
         })}
         </main>
         {this.state.isGalleryDisplayed &&
-          <div className="modal-container" onClick={this.closeGallery}>
+          <div className="modal-container">
+            <div className="close-container" onClick={this.closeGallery}>CLOSE&nbsp;&nbsp;<span>X</span></div>
             <ImageGallery
               items={this.state.images}
               showFullscreenButton={false}

@@ -1,52 +1,49 @@
 import React, {Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
 import Choice from './Choice';
+import AppBar from './AppBar';
 
 export default class OrderSummary extends Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     isCheckoutSelected: false
-  //   }
-  // }
+  constructor(props) {
+    super(props);
+    this.launchGallery = this.launchGallery.bind(this);
+  }
 
   componentDidMount() {
     window.scrollTo(0,0);
   }
 
+  launchGallery(isImages = true, images) {
+    if (isImages) {
+      this.setState({
+        isGalleryDisplayed: true,
+        images: images
+      });
+    }
+  }
+
   render() {
-    let {DB,orders,updateOrder,deleteAndChangeOrder,isOrderFinished,addAnotherOrder} = this.props;
+    let {DB,orders,isOrderFinished,addAnotherOrder} = this.props;
     if (!isOrderFinished) {
       return <Redirect to="/order" />
     }
     return (
       <div className="order-summary">
+        <AppBar {...this.props} />
         <h1 className="order-summary">Order Summary</h1>
         {orders.map((order,index) => {
           return (
             <div key={index}>
-              <h3>Order {index + 1}</h3>
-              <h2>Shirt</h2>
+              <h2>Order {index + 1}</h2>
               <Choice
                 choice={DB.shirts[order.shirt]}
-                index={`shirt${index}`}
+                sizeText={DB.sizes[order.size].text}
+                cut={DB.cuts[order.cut]}
+                index={index}
                 isOrderFinished={isOrderFinished}
-                updateOrder={updateOrder} />
-              <h2>Size</h2>
-              <Choice
-                choice={DB.sizes[order.size]}
-                index={`size${index}`}
-                isOrderFinished={isOrderFinished}
-                updateOrder={updateOrder} />
-
-              <h2>Cut</h2>
-              <Choice
-                choice={DB.cuts[order.cut]}
-                index={`cut${index}`}
-                isOrderFinished={isOrderFinished}
-                updateOrder={updateOrder} />
-              <button onClick={() => deleteAndChangeOrder(index)}>Update this order</button>
+                ownShirtImage={order.ownShirtImage}
+                launchGallery={this.launchGallery}/>
             </div>
           )
         })}
