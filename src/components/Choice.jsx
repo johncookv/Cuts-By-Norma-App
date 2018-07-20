@@ -51,7 +51,7 @@ class Choice extends Component {
             <Fragment>
               <CardMedia
                 className={classes.media}
-                image={(ownShirtImage === "") ? choice.image : ownShirtImage}
+                image={(ownShirtImage === "" || ownShirtImage === undefined) ? choice.image : ownShirtImage}
                 title={choice.text}
                 onClick={() => launchGallery(choice.orderKey, choice.imageList)}
               />
