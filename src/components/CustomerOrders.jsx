@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import Choice from './Choice';
 // TODO
 // Button to go back to customers page
@@ -8,6 +8,10 @@ import Choice from './Choice';
 export default function(props) {
   const {customer, DB, isOrderFinished, isCustomerSelected, backToCustomers} = props;
   const address = customer.address
+  if (!isCustomerSelected) {
+    return <Redirect to="/customers" />
+  }
+  console.log(customer.orders)
   return (
     <div className="container">
       <div className="row">
@@ -58,26 +62,14 @@ export default function(props) {
         {customer.orders.map((order, index) => {
           return (
             <div key={index}>
-              <h3>Order {index + 1}</h3>
-              <h2>Shirt</h2>
+              <h2>Order {index + 1}</h2>
               <Choice
                 choice={DB.shirts[order.shirt]}
-                index={`shirt${index}`}
+                sizeText={DB.sizes[order.size].text}
+                cut={DB.cuts[order.cut]}
+                index={index}
                 isOrderFinished={isOrderFinished}
-                isCustomerSelected={isCustomerSelected}/>
-              <h2>Size</h2>
-              <Choice
-                choice={DB.sizes[order.size]}
-                index={`size${index}`}
-                isOrderFinished={isOrderFinished}
-                isCustomerSelected={isCustomerSelected}/>
-
-              <h2>Cut</h2>
-              <Choice
-                choice={DB.cuts[order.cut]}
-                index={`cut${index}`}
-                isOrderFinished={isOrderFinished}
-                isCustomerSelected={isCustomerSelected}/>
+                ownShirtImage={order.ownShirtImage}/>
             </div>
           )
         })}

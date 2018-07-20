@@ -24,7 +24,6 @@ function HomeIcon(props) {
 
 function SimpleAppBar(props) {
   const { classes, reset } = props;
-  console.log("reset: ", reset)
   return (
     <div className={classes.root}>
       <AppBar className={props.isGalleryDisplayed ? classes.hide : ""} position="fixed" color="primary">

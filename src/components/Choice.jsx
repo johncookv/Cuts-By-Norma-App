@@ -1,4 +1,4 @@
-import React,{Component} from 'react';
+import React,{Component,Fragment} from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import {Card,CardActions,CardContent,CardMedia,Button,Typography} from '@material-ui/core';
 
@@ -35,42 +35,53 @@ class Choice extends Component {
   }
 
   render() {
-    let {DB,choice,index,updateOrder,isOrderFinished,launchGallery,launchWebcam,currentStep,sizeText,cutText,deleteAndChangeOrder} = this.props;
+    let {DB,choice,index,updateOrder,isOrderFinished,launchGallery,launchWebcam,
+      currentStep,sizeText,cut,deleteAndChangeOrder,ownShirtImage} = this.props;
     const { classes } = this.props;
     return (
       <div>
         <Card className={classes.card}>
-          <CardMedia
-            className={classes.media}
-            image={choice.image}
-            title={choice.text}
-            onClick={() => launchGallery(choice.orderKey, choice.imageList)}
-          />
 
           {/* Different card content based on if order is finished */}
           {isOrderFinished ?
             // Layout for Summary pages
-            <CardContent>
-              <Typography gutterBottom variant="headline" component="h2">
-                {choice.text}
-              </Typography>
-              <Typography gutterBottom variant="headline" component="h3">
-                Size: {sizeText}
-              </Typography>
-              <Typography gutterBottom variant="headline" component="h3">
-                Cut: {cutText}
-              </Typography>
-            </CardContent>
+            <Fragment>
+              <CardMedia
+                className={classes.media}
+                image={(ownShirtImage === "") ? choice.image : ownShirtImage}
+                title={choice.text}
+                onClick={() => launchGallery(choice.orderKey, choice.imageList)}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="headline" component="h2">
+                  {choice.text}
+                </Typography>
+                <Typography gutterBottom variant="headline" component="h3">
+                  Size: {sizeText}
+                </Typography>
+                <Typography gutterBottom variant="headline" component="h3" onClick={() => launchGallery(cut.orderKey, cut.imageList)}>
+                  Cut: {cut.text}
+                </Typography>
+              </CardContent>
+            </Fragment>
               :
             // Layout for Order page
-            <CardContent>
-              <Typography gutterBottom variant="headline" component="h2">
-                {choice.text}
-              </Typography>
-              <Typography component="p">
-                {choice.description}
-              </Typography>
-            </CardContent>
+            <Fragment>
+              <CardMedia
+                className={classes.media}
+                image={choice.image}
+                title={choice.text}
+                onClick={() => launchGallery(choice.orderKey, choice.imageList)}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="headline" component="h2">
+                  {choice.text}
+                </Typography>
+                <Typography component="p">
+                  {choice.description}
+                </Typography>
+              </CardContent>
+            </Fragment>
           }
 
           {/* Show size buttons on step 1 of Order page */}

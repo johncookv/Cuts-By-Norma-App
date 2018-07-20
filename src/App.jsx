@@ -25,6 +25,7 @@ const origState = {
     shirt: null,
     cut: null,
     size: null,
+    ownShirtImage: "",
   },
   customer: {
     first: null,
@@ -81,7 +82,6 @@ class App extends Component {
   }
 
   determineNextStep = (order) => {
-    console.log("ORDER: ", order);
     let objectArray = Object.values(order);
     let step;
     switch(objectArray.indexOf(null)) {
@@ -97,7 +97,6 @@ class App extends Component {
     this.setState({ currentStep: step });
     if (step === -1) {
       let index = this.state.currentOrderIndex;
-      console.log("order index: ", index);
       if (index === -1) {
         this.pushToOrders(order);
       } else {
@@ -136,7 +135,6 @@ class App extends Component {
   }
 
   deleteAndChangeOrder(index) {
-    console.log(this.state.order, index);
     this.setState({
       currentOrderIndex: index,
       isOrderFinished: false,
@@ -154,19 +152,17 @@ class App extends Component {
   }
 
   updateOwnShirt(image) {
-    let dbCopy = Object.assign({},this.state.database);
-    dbCopy.shirts.ownShirt.image = image;
     let orderCopy = Object.assign({}, this.state.order);
     orderCopy.shirt = 'ownShirt';
+    orderCopy.ownShirtImage = image;
     this.setState({
-      database: dbCopy,
       order: orderCopy,
+      isOwnShirtSelected: false,
+      currentStep: 1,
     });
-    this.determineNextStep(orderCopy);
   }
 
   // pushToFirebase = () => {
-  //   console.log(this.state.customer)
   //   const customersRef = firebase.database().ref('customers');
   //   customersRef.push(this.state.customer);
   // }
@@ -204,7 +200,6 @@ class App extends Component {
   }
 
   addAnotherOrder = () => {
-    console.log(this.state.order);
     this.setState({
       isOrderFinished: false,
       currentStep: 0,
@@ -229,7 +224,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.order.size);
     return (
       <Fragment>
         <CssBaseline />
@@ -288,7 +282,8 @@ class App extends Component {
             <Route path="/own-shirt" render={() =>
               <WebcamCapture
                 updateOwnShirt={this.updateOwnShirt}
-                reset={this.reset}/>}/>
+                reset={this.reset}
+                isOwnShirtSelected={this.state.isOwnShirtSelected}/>}/>
           </div>
         </BrowserRouter>
       </Fragment>

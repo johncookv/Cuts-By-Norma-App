@@ -5,19 +5,26 @@ import AppBar from './AppBar';
 
 export default class OrderSummary extends Component {
 
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     isCheckoutSelected: false
-  //   }
-  // }
+  constructor(props) {
+    super(props);
+    this.launchGallery = this.launchGallery.bind(this);
+  }
 
   componentDidMount() {
     window.scrollTo(0,0);
   }
 
+  launchGallery(isImages = true, images) {
+    if (isImages) {
+      this.setState({
+        isGalleryDisplayed: true,
+        images: images
+      });
+    }
+  }
+
   render() {
-    let {DB,orders,deleteAndChangeOrder,isOrderFinished,addAnotherOrder} = this.props;
+    let {DB,orders,isOrderFinished,addAnotherOrder} = this.props;
     if (!isOrderFinished) {
       return <Redirect to="/order" />
     }
@@ -32,10 +39,11 @@ export default class OrderSummary extends Component {
               <Choice
                 choice={DB.shirts[order.shirt]}
                 sizeText={DB.sizes[order.size].text}
-                cutText={DB.cuts[order.cut].text}
+                cut={DB.cuts[order.cut]}
                 index={index}
                 isOrderFinished={isOrderFinished}
-                deleteAndChangeOrder={deleteAndChangeOrder}/>
+                ownShirtImage={order.ownShirtImage}
+                launchGallery={this.launchGallery}/>
             </div>
           )
         })}

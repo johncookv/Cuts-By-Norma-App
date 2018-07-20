@@ -22,11 +22,11 @@ export default class Order extends Component {
     window.scrollTo(0,0);
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (this.props !== nextProps) {
-      window.scrollTo(0,0);
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   if (this.props !== nextProps) {
+  //     window.scrollTo(0,0);
+  //   }
+  // }
 
   launchGallery(isImages = true, images) {
     if (isImages) {
