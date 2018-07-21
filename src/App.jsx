@@ -21,6 +21,7 @@ const origState = {
   database: DB,
   currentOrderIndex: -1,
   currentStep: 0,
+  totalPrice: 0,
   order: {
     shirt: null,
     cut: null,

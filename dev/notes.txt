@@ -17,7 +17,10 @@ Issues to resolve
 15. Fix crash in CustomerOrders page - FIXED
 16. Bounce scroll inside main container (so app bar doesn't bounce) - LOW PRIORITY
 17. Make into an app in Android/iOS app store - LOW PRIORITY
-18.
+18. Make LaunchGallery into its own component to make code more DRY
+19. Put AppBar in App.jsx so it doesn't have to be in every component
+20. "Cross out" finished orders and put them at the bottom of the list - HIGH PRIORITY!!!
+21. Remove phone number auto dash logic
 
 
 Pretty much done with this stuff except for styling

@@ -41,9 +41,9 @@ export default class OrderSummary extends Component {
                 sizeText={DB.sizes[order.size].text}
                 cut={DB.cuts[order.cut]}
                 index={index}
-                isOrderFinished={isOrderFinished}
                 ownShirtImage={order.ownShirtImage}
-                launchGallery={this.launchGallery}/>
+                launchGallery={this.launchGallery}
+                {...this.props}/>
             </div>
           )
         })}

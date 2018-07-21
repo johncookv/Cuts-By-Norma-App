@@ -95,7 +95,8 @@ export default class extends Component {
                     index={index}
                     isOrderFinished={isOrderFinished}
                     ownShirtImage={order.ownShirtImage}
-                    launchGallery={this.launchGallery}/>
+                    launchGallery={this.launchGallery}
+                    isCustomerSelected={isCustomerSelected}/>
                 </div>
               )
             })}
