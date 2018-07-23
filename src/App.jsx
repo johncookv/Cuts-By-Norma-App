@@ -11,7 +11,7 @@ import Customers from './components/Customers';
 import ThankYou from './components/ThankYou';
 import {DB} from './js/DB';
 import firebase from './config/firebase';
-import CssBaseline from '@material-ui/core/CssBaseline';
+import CssBaseline from '@material-ui/core/CssBaseline'; 
 
 const origState = {
   isCustomerInfoCompleted: false,
