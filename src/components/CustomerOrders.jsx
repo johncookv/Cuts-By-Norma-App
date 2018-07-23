@@ -1,8 +1,9 @@
-import React, {Component} from 'react';
-import {Link, Redirect} from 'react-router-dom';
+import React, {Component,Fragment} from 'react';
+import {Redirect} from 'react-router-dom';
 import ImageGallery from 'react-image-gallery';
 import Choice from './Choice';
 import AppBar from './AppBar'
+import firebase from '../config/firebase';
 
 export default class extends Component {
 
@@ -11,8 +12,11 @@ export default class extends Component {
     this.state = {
       isGalleryDisplayed: false,
       images: [],
+      isOrderFulfilled: false,
     }
     this.launchGallery = this.launchGallery.bind(this);
+    this.handleFulfilled = this.handleFulfilled.bind(this);
+    this.backToCustomersOnClick = this.backToCustomersOnClick.bind(this);
   }
 
   launchGallery(isImages = true, images) {
@@ -28,13 +32,39 @@ export default class extends Component {
     this.setState({ isGalleryDisplayed: false });
   }
 
+  handleFulfilled(e) {
+    let isFulfilled = (e.target.value === "isFulfilled");
+    this.setState({ isOrderFulfilled: isFulfilled });
+  }
+
+  backToCustomersOnClick = () => {
+    if (this.state.isOrderFulfilled !== this.props.isCustomerFulfilled) {
+      if (this.state.isOrderFulfilled) {
+
+        // remove customer from unfulfilled
+        const unfulfilledRef = firebase.database().ref(`unfulfilled/${this.props.customer.id}`);
+        unfulfilledRef.remove();
+        // add customer to fulfilled
+        const fulfilledRef = firebase.database().ref('fulfilled');
+        fulfilledRef.push(this.props.customer);
+      }
+      // TODO implement a way to "uncross out" a customer
+      // else {
+      //
+      // }
+
+    }
+    console.log("getting ready to call backToCustomers")
+    this.props.backToCustomers();
+  }
+
   render() {
-    const {customer, DB, isOrderFinished, isCustomerSelected, backToCustomers} = this.props;
+    const {customer, DB, isOrderFinished, isCustomerSelected, isCustomerFulfilled} = this.props;
     const address = customer.address
     if (!isCustomerSelected) {
       return <Redirect to="/customers" />
     }
-    console.log(customer.orders)
+    console.log(customer)
     return (
       <div className={`${this.state.isGalleryDisplayed ? "no-scroll" : ""} customers`}>
         <AppBar {...this.props} />
@@ -100,7 +130,24 @@ export default class extends Component {
                 </div>
               )
             })}
-            <Link to="/admin" onClick={backToCustomers}><button>Back to Customer List</button></Link>
+            {!isCustomerFulfilled &&
+              <Fragment>
+                <label>Has the order been fulfilled?</label>
+                <div className="form-check">
+                  <input className="form-check-input" type="radio" name="isOrderFulfilled" id="isFulfilled" value="isFulfilled" checked={this.state.isOrderFulfilled} onChange={this.handleFulfilled} />
+                  <label className="form-check-label" htmlFor="ship">
+                    Yes
+                  </label>
+                </div>
+                <div className="form-check">
+                  <input className="form-check-input" type="radio" name="isOrderFulfilled" id="isNotFulfilled" value="isNotFulfilled" checked={!this.state.isOrderFulfilled} onChange={this.handleFulfilled} />
+                  <label className="form-check-label" htmlFor="noship">
+                    No
+                  </label>
+                </div>
+              </Fragment>
+            }
+            <button onClick={this.backToCustomersOnClick}>Back to Customer List</button>
           </div>
           </div>
         </div>

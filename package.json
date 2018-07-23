@@ -15,6 +15,7 @@
     "nodemon": "^1.17.5",
     "react": "^16.4.1",
     "react-dom": "^16.1.1",
+    "react-fastclick": "^3.0.2",
     "react-image-gallery": "^0.8.9",
     "react-particles-js": "^2.1.0",
     "react-router": "^4.2.0",

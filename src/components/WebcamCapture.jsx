@@ -20,10 +20,10 @@ export default class WebcamCapture extends Component {
       <div className="webcam-capture">
         <Webcam
           audio={false}
-          height={350}
+          height={400}
           ref={this.setRef}
           screenshotFormat="image/jpeg"
-          width={350}
+          width={400}
         />
         <button onClick={this.capture}>Capture photo</button>
       </div>

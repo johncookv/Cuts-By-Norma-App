@@ -5,7 +5,7 @@ import Homepage from './_templates/Homepage';
 import Order from './components/Order';
 import OrderSummary from './components/OrderSummary';
 import WebcamCapture from './components/WebcamCapture';
-import CustomerInfo from './components/CustomerInfo';
+import CustomerForm from './components/CustomerForm';
 import CustomerOrders from './components/CustomerOrders';
 import Customers from './components/Customers';
 import ThankYou from './components/ThankYou';
@@ -14,10 +14,12 @@ import firebase from './config/firebase';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
 const origState = {
+  isCustomerInfoCompleted: false,
   isOrderStarted: false,
   isOrderFinished: false,
   isOwnShirtSelected: false,
   isCustomerSelected: false,
+  isCustomerFulfilled: false,
   database: DB,
   currentOrderIndex: -1,
   currentStep: 0,
@@ -150,6 +152,7 @@ class App extends Component {
       isOwnShirtSelected: true,
       order: orderCopy
     });
+    navigator.mediaDevices.enumerateDevices().then(devices => console.log(devices))
   }
 
   updateOwnShirt(image) {
@@ -184,7 +187,7 @@ class App extends Component {
       isCustomerInfoCompleted: true
     }, () => {
       // push to firebase after customer is updated
-      const customersRef = firebase.database().ref('customers');
+      const customersRef = firebase.database().ref('unfulfilled');
       customersRef.push(this.state.customer);
     })
   }
@@ -208,10 +211,11 @@ class App extends Component {
     })
   }
 
-  customerOnClick(customer) {
+  customerOnClick(customer, isCustomerFulfilled) {
     this.setState({
       customer: customer,
-      isCustomerSelected: true
+      isCustomerSelected: true,
+      isCustomerFulfilled: isCustomerFulfilled,
     });
   }
 
@@ -257,7 +261,7 @@ class App extends Component {
                 addAnotherOrder={this.addAnotherOrder}
                 reset={this.reset}/>} />
             <Route path="/customer-info" render={() =>
-              <CustomerInfo
+              <CustomerForm
                 completeOrder={this.completeOrder}
                 customer={this.state.customer}å
                 isOrderStarted={this.state.isOrderStarted}
@@ -267,7 +271,7 @@ class App extends Component {
               <ThankYou
                 reset={this.reset}
                 isOrderStarted={this.state.isOrderStarted}/>}/>
-            <Route path="/admin" render={() =>
+            <Route path="/customers" render={() =>
               <Customers
                 isOrderStarted={this.state.isOrderStarted}
                 customerOnClick={this.customerOnClick}
@@ -280,7 +284,8 @@ class App extends Component {
                 isOrderFinished={true}
                 backToCustomers={this.backToCustomers}
                 isCustomerSelected={this.state.isCustomerSelected}
-                reset={this.reset}/>} />
+                reset={this.reset}
+                isCustomerFulfilled={this.state.isCustomerFulfilled}/>} />
             <Route path="/own-shirt" render={() =>
               <WebcamCapture
                 updateOwnShirt={this.updateOwnShirt}

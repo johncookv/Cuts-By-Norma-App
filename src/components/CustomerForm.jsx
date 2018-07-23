@@ -3,7 +3,7 @@ import {Redirect} from 'react-router-dom';
 import $ from 'jquery';
 import AppBar from './AppBar';
 
-export default class CustomerInfo extends Component {
+export default class CustomerForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,20 +11,23 @@ export default class CustomerInfo extends Component {
       isShip: false
     }
     this.handleShipping = this.handleShipping.bind(this);
-    this.formatAndSetPhoneNumber = this.formatAndSetPhoneNumber.bind(this);
+    // this.formatAndSetPhoneNumber = this.formatAndSetPhoneNumber.bind(this);
   }
 
   componentDidMount() {
     window.scrollTo(0,0);
   }
 
-  formatAndSetPhoneNumber(e) {
-    let value = e.target.value;
-    value = value.slice(0,3)+"-" + value.slice(3,6)+"-" + value.slice(6,15);
-    let copy = Object.assign({}, this.state.customer);
-    copy.phone = value;
-    this.setState({ customer: copy });
-  }
+  // TODO Find better phone number formatting function
+  // Add this to phone number part of form
+  // onBlur={this.formatAndSetPhoneNumber}
+  // formatAndSetPhoneNumber(e) {
+  //   let value = e.target.value;
+  //   value = value.slice(0,3)+"-" + value.slice(3,6)+"-" + value.slice(6,15);
+  //   let copy = Object.assign({}, this.state.customer);
+  //   copy.phone = value;
+  //   this.setState({ customer: copy });
+  // }
 
   handleChange(key, e) {
     let value = e.target.value
@@ -96,7 +99,6 @@ export default class CustomerInfo extends Component {
                     size="20"
                     minLength="10"
                     maxLength="14"
-                    onBlur={this.formatAndSetPhoneNumber}
                     onChange={(e) => this.handleChange("phone", e)}
                     value={this.state.customer.phone !== null ? this.state.customer.phone : ""}/>
                 </div>

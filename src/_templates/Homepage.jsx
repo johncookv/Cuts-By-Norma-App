@@ -12,7 +12,7 @@ export default class Homepage extends Component {
     return (
   		<div className="container homepage">
         <div className="jumbotron">
-          <Link to="/admin"><img src={require("../assets/images/cbn-logo.svg")} alt="Cuts by Norma logo"/></Link>
+          <Link to="/customers"><img src={require("../assets/images/cbn-logo.svg")} alt="Cuts by Norma logo"/></Link>
           <h1 className="display-4 text-center mt-3">Ordering App</h1>
           <p className="lead text-center">Order your shirt and/or cut now!</p>
           {/* <hr className="my-4" />
