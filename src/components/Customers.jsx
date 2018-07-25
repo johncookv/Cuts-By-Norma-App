@@ -67,7 +67,6 @@ export default class extends Component {
     if (this.props.isCustomerSelected) {
       return <Redirect to="/customer-orders" />
     }
-    console.log("isCustomerSelected: ", this.props.isCustomerSelected)
     return (
       <div className="customers">
         <AppBar {...this.props} />

@@ -61,7 +61,6 @@ export default class extends Component {
       // }
 
     }
-    console.log("getting ready to call backToCustomers")
     this.props.backToCustomers();
   }
 
@@ -71,7 +70,6 @@ export default class extends Component {
     if (!isCustomerSelected) {
       return <Redirect to="/customers" />
     }
-    console.log(customer)
     return (
       <div className={`${this.state.isGalleryDisplayed ? "no-scroll" : ""} customers`}>
         <AppBar {...this.props} />

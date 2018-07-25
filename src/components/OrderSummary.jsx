@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Link, Redirect} from 'react-router-dom';
+import ImageGallery from 'react-image-gallery';
 import Choice from './Choice';
 import AppBar from './AppBar';
 
@@ -7,6 +8,9 @@ export default class OrderSummary extends Component {
 
   constructor(props) {
     super(props);
+    this.state = {
+      isGalleryDisplayed: false,
+    }
     this.launchGallery = this.launchGallery.bind(this);
   }
 
@@ -28,6 +32,10 @@ export default class OrderSummary extends Component {
       isGalleryDisplayed: true,
       images: imagesArray
     });
+  }
+
+  closeGallery = () => {
+    this.setState({ isGalleryDisplayed: false });
   }
 
   render() {
@@ -56,6 +64,17 @@ export default class OrderSummary extends Component {
         })}
         <button onClick={addAnotherOrder}>Add another order</button>
         <Link to="/customer-info"><button>Checkout</button></Link>
+
+        {this.state.isGalleryDisplayed &&
+          <div className="modal-container">
+            <div className="close-container" onClick={this.closeGallery}>CLOSE&nbsp;&nbsp;<span>X</span></div>
+            <ImageGallery
+              items={this.state.images}
+              showFullscreenButton={false}
+              showPlayButton={false}
+              preventDefaultTouchmoveEvent={true}/>
+          </div>
+        }
       </div>
     );
   }

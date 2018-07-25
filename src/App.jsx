@@ -13,7 +13,7 @@ import {DB} from './js/DB';
 import firebase from './config/firebase';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
-const origState = { 
+const origState = {
   isCustomerInfoCompleted: false,
   isOrderStarted: false,
   isOrderFinished: false,
@@ -29,6 +29,7 @@ const origState = {
     cut: null,
     size: null,
     ownShirtImage: "",
+    price: 0
   },
   customer: {
     first: null,
@@ -75,6 +76,8 @@ class App extends Component {
       shirt: null,
       cut: null,
       size: null,
+      ownShirtImage: "",
+      price: 0
     }
     this.setState({ order: nullOrder });
   }
@@ -98,19 +101,32 @@ class App extends Component {
         step = -1;
     }
     this.setState({ currentStep: step });
-    if (step === -1) {
+
+    if (step === -1) { // done with Order.jsx
+
       let index = this.state.currentOrderIndex;
-      if (index === -1) {
-        this.pushToOrders(order);
-      } else {
+      if (index === -1) { // if not updating an order
+        this.setState({ totalPrice: this.state.totalPrice + order.price }, () => {
+          this.pushToOrders(order);
+        });
+      } else { // update order at the correct index
         // copy customer with spread operator - https://stackoverflow.com/questions/43040721/how-to-update-a-nested-state-in-react
         // doesn't deep copy (so be careful with nested objects) - https://bambielli.com/til/2017-01-29-spread-operator-deep-copy/
         // seems to work here because I'm updating orders array within customer
         let customerCopy = {...this.state.customer};
         let ordersCopy = customerCopy.orders.slice();
+
+        // subtract price of old order
+        let newTotal = this.state.totalPrice - ordersCopy[index].price;
+
+        // add price of new order
+        newTotal = this.state.totalPrice + order.price;
         ordersCopy.splice(index, 1, order);
         customerCopy.orders = ordersCopy;
-        this.setState({ customer: customerCopy });
+        this.setState({
+          customer: customerCopy,
+          totalPrice: newTotal
+        });
         this.resetOrder();
       }
       this.setState({
@@ -127,21 +143,27 @@ class App extends Component {
     });
   }
 
-  updateOrder(orderKey, value, size, orderFinished = false) {
+  updateOrder(orderKey, choice, size, orderFinished = false) {
     let orderCopy = Object.assign({}, this.state.order);
-    orderCopy[orderKey] = value;
+    orderCopy[orderKey] = choice.choiceKey;
     if (size !== "") {
       orderCopy.size = size;
     }
+    orderCopy.price = choice.price
     this.setState({ order: orderCopy });
     this.determineNextStep(orderCopy);
   }
 
   deleteAndChangeOrder(index) {
+    let newTotal = 0;
+    if (this.state.totalPrice > 0) {
+      newTotal = this.state.totalPrice - this.state.customer.orders[index].price;
+    }
     this.setState({
       currentOrderIndex: index,
       isOrderFinished: false,
       currentStep: 0,
+      totalPrice: newTotal,
     });
   }
 
@@ -152,7 +174,7 @@ class App extends Component {
       isOwnShirtSelected: true,
       order: orderCopy
     });
-    navigator.mediaDevices.enumerateDevices().then(devices => console.log(devices))
+    // navigator.mediaDevices.enumerateDevices().then(devices => console.log(devices))
   }
 
   updateOwnShirt(image) {
@@ -198,7 +220,6 @@ class App extends Component {
   }
 
   reset = () => {
-    console.log("reset called")
     let customerCopy = {...this.state.customer};
     customerCopy.orders.length = 0;
     this.setState(origState);
@@ -230,6 +251,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.state.totalPrice);
     return (
       <Fragment>
         <CssBaseline />

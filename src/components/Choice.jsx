@@ -13,6 +13,11 @@ const styles = {
   },
   dNone: {
     display: "none",
+  },
+  mediaOwn: {
+    height: 0,
+    paddingTop: '56.25%',
+    backgroundSize: 'contain'
   }
 };
 
@@ -62,7 +67,7 @@ class Choice extends Component {
                 <Typography gutterBottom variant="headline" component="h3">
                   Size: {sizeText}
                 </Typography>
-                <Typography gutterBottom variant="headline" component="h3" onClick={() => launchGallery(choice.choiceKey, choice.imageCount)}>
+                <Typography gutterBottom variant="headline" component="h3" onClick={() => launchGallery(cut.choiceKey, cut.imageCount)}>
                   Cut: {cut.text}
                 </Typography>
               </CardContent>
@@ -71,7 +76,7 @@ class Choice extends Component {
             // Layout for Order page
             <Fragment>
               <CardMedia
-                className={classes.media}
+                className={choice.choiceKey === "ownShirt" ? classes.mediaOwn : classes.media}
                 image={require(`../assets/images/${choice.choiceKey}/${choice.choiceKey}-1.jpg`)}
                 title={choice.text}
                 onClick={() => launchGallery(choice.choiceKey, choice.imageCount)}
@@ -110,7 +115,7 @@ class Choice extends Component {
             </CardActions>
             :
             <CardActions>
-              <Button disabled={currentStep === 0 ? this.state.isAddButtonDisabled : false} variant="contained" color="primary" fullWidth={true} onClick={() => (choice.choiceKey === 'ownShirt') ? launchWebcam(this.state.size) : updateOrder(choice.orderKey, choice.choiceKey, this.state.size)}>
+              <Button disabled={currentStep === 0 ? this.state.isAddButtonDisabled : false} variant="contained" color="primary" fullWidth={true} onClick={() => (choice.choiceKey === 'ownShirt') ? launchWebcam(this.state.size) : updateOrder(choice.orderKey, choice, this.state.size)}>
                 Add to cart
               </Button>
             </CardActions>
