@@ -9,6 +9,7 @@ import CustomerForm from './components/CustomerForm';
 import CustomerOrders from './components/CustomerOrders';
 import Customers from './components/Customers';
 import ThankYou from './components/ThankYou';
+import FloatingPrice from './components/FloatingPrice';
 import {DB} from './js/DB';
 import firebase from './config/firebase';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -24,6 +25,7 @@ const origState = {
   currentOrderIndex: -1,
   currentStep: 0,
   totalPrice: 0,
+  prevPrice: 0,
   order: {
     shirt: null,
     cut: null,
@@ -155,6 +157,7 @@ class App extends Component {
   }
 
   deleteAndChangeOrder(index) {
+    let prevPrice = this.state.totalPrice;
     let newTotal = 0;
     if (this.state.totalPrice > 0) {
       newTotal = this.state.totalPrice - this.state.customer.orders[index].price;
@@ -164,6 +167,7 @@ class App extends Component {
       isOrderFinished: false,
       currentStep: 0,
       totalPrice: newTotal,
+      prevPrice: prevPrice
     });
   }
 
@@ -250,8 +254,14 @@ class App extends Component {
     this.setState({ order: orderCopy });
   }
 
+  // floatingPriceOnclick = () => {
+  //   if (this.state.customer.orders.length >= 1) {
+  //     this.setState({ isOrderFinished: true });
+  //   }
+  //   this.setState({ totalPrice: this.state.prevPrice });
+  // }
+
   render() {
-    console.log(this.state.totalPrice);
     return (
       <Fragment>
         <CssBaseline />
@@ -315,6 +325,10 @@ class App extends Component {
                 isOwnShirtSelected={this.state.isOwnShirtSelected}/>}/>
           </div>
         </BrowserRouter>
+        <FloatingPrice
+          price={this.state.totalPrice}
+          isOrderStarted={this.state.isOrderStarted}
+          floatingPriceOnclick={this.floatingPriceOnclick}/>
       </Fragment>
     );
   }

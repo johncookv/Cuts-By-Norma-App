@@ -58,7 +58,7 @@ const shirts = {
   ownShirt: {
     text: "Own shirt",
     price: 0,
-    description: "Take a pic of the shirt you want Norma to cut",
+    description: "Choose your size, add to cart, and take a pic of the shirt you want Norma to cut",
     choiceKey: "ownShirt",
     orderKey: "shirt",
     imageCount: 1
