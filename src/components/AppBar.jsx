@@ -32,7 +32,11 @@ function SimpleAppBar(props) {
           <Typography variant="title" color="inherit">
             Cuts by Norma
           </Typography>
-          <Link to="/"><HomeIcon color="inherit" onClick={reset} /></Link>
+          <Link to="/">
+            <div className="home-container" onClick={reset}>
+              <HomeIcon color="inherit" />
+            </div>
+          </Link>
         </Toolbar>
       </AppBar>
     </div>
