@@ -17,7 +17,7 @@ const floatingPrice = (props) => {
   const { classes } = props;
   return (
     // TODO: add onclick functionality
-    // <Button onClick={pr  ops.floatingPriceOnclick} variant="fab" color="secondary" className={props.isOrderStarted ? classes.button : classes.dNone}>
+    // <Button onClick={props.floatingPriceOnclick} variant="fab" color="secondary" className={props.isOrderStarted ? classes.button : classes.dNone}>
     <Button onClick={props.floatingPriceOnclick} variant="fab" color="secondary" className={props.isOrderStarted ? classes.button : classes.dNone}>
       ${props.price}
     </Button>

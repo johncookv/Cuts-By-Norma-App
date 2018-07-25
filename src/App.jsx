@@ -10,6 +10,7 @@ import CustomerOrders from './components/CustomerOrders';
 import Customers from './components/Customers';
 import ThankYou from './components/ThankYou';
 import FloatingPrice from './components/FloatingPrice';
+import Gallery from './components/Gallery';
 import {DB} from './js/DB';
 import firebase from './config/firebase';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -26,6 +27,8 @@ const origState = {
   currentStep: 0,
   totalPrice: 0,
   prevPrice: 0,
+  isGalleryDisplayed: false,
+  galleryImages: [],
   order: {
     shirt: null,
     cut: null,
@@ -66,6 +69,8 @@ class App extends Component {
     this.customerOnClick = this.customerOnClick.bind(this);
     this.updateSize = this.updateSize.bind(this);
     this.launchWebcam = this.launchWebcam.bind(this);
+    this.launchGallery = this.launchGallery.bind(this);
+    this.closeGallery = this.closeGallery.bind(this);
   }
 
   // done before component mounts
@@ -261,6 +266,27 @@ class App extends Component {
   //   this.setState({ totalPrice: this.state.prevPrice });
   // }
 
+  launchGallery(choice, imageCount) {
+    let imagesArray = [];
+    for (let i = 0; i < imageCount; i++) {
+      imagesArray.push(
+        {
+          original: require(`./assets/images/${choice}/${choice}-${i + 1}.jpg`),
+          thumbnail: require(`./assets/images/${choice}/${choice}-${i + 1}.jpg`)
+        }
+      );
+    }
+    this.setState({
+      isGalleryDisplayed: true,
+      galleryImages: imagesArray
+    });
+  }
+
+
+  closeGallery = () => {
+    this.setState({ isGalleryDisplayed: false });
+  }
+
   render() {
     return (
       <Fragment>
@@ -282,7 +308,9 @@ class App extends Component {
                 isOwnShirtSelected={this.state.isOwnShirtSelected}
                 isOrderStarted={this.state.isOrderStarted}
                 updateSize={this.updateSize}
-                reset={this.reset}/>}/>
+                reset={this.reset}
+                launchGallery={this.launchGallery}
+                isGalleryDisplayed={this.state.isGalleryDisplayed}/>}/>
             <Route path="/order-summary" render={() =>
               <OrderSummary
                 DB={this.state.database}
@@ -329,6 +357,10 @@ class App extends Component {
           price={this.state.totalPrice}
           isOrderStarted={this.state.isOrderStarted}
           floatingPriceOnclick={this.floatingPriceOnclick}/>
+        <Gallery
+          isGalleryDisplayed={this.state.isGalleryDisplayed}
+          items={this.state.galleryImages}
+          closeGallery={this.closeGallery}/>
       </Fragment>
     );
   }

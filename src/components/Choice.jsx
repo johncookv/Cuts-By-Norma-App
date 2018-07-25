@@ -56,7 +56,7 @@ class Choice extends Component {
             <Fragment>
               <CardMedia
                 className={classes.media}
-                image={(ownShirtImage === "" || ownShirtImage === undefined) ? require(`../assets/images/${choice.choiceKey}/${choice.choiceKey}-1.jpg`) : ownShirtImage}
+                image={(ownShirtImage === "" || ownShirtImage === undefined) ? require(`../assets/images/${choice.choiceKey}/${choice.choiceKey}-card.jpg`) : ownShirtImage}
                 title={choice.text}
                 onClick={() => launchGallery(choice.choiceKey, choice.imageCount)}
               />
@@ -77,7 +77,7 @@ class Choice extends Component {
             <Fragment>
               <CardMedia
                 className={choice.choiceKey === "ownShirt" ? classes.mediaOwn : classes.media}
-                image={require(`../assets/images/${choice.choiceKey}/${choice.choiceKey}-1.jpg`)}
+                image={require(`../assets/images/${choice.choiceKey}/${choice.choiceKey}-card.jpg`)}
                 title={choice.text}
                 onClick={() => launchGallery(choice.choiceKey, choice.imageCount)}
               />
