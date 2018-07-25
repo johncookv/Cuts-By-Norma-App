@@ -4,185 +4,64 @@ const shirts = {
     description: "Shirt Description",
     choiceKey: "shirt1",
     orderKey: "shirt",
-    price: 20,
-    image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-    imageList: [
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-    ]
+    image: "shirt1-1.jpg",
+    imageCount: 2
   },
   shirt2: {
     text: "Shirt 2",
     description: "Shirt Description",
     choiceKey: "shirt2",
     orderKey: "shirt",
-    price: 20,
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-    imageList: [
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-    ]
+    imageCount: 2
   },
   shirt3: {
     text: "Shirt 3",
     description: "Shirt Description",
     choiceKey: "shirt3",
     orderKey: "shirt",
-    price: 20,
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-    imageList: [
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-    ]
+    imageCount: 2
   },
   shirt4: {
     text: "Shirt 4",
     description: "Shirt Description",
     choiceKey: "shirt4",
     orderKey: "shirt",
-    price: 20,
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-    imageList: [
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-    ]
+    imageCount: 4
   },
   shirt5: {
     text: "Shirt 5",
     description: "Shirt Description",
     choiceKey: "shirt5",
     orderKey: "shirt",
-    price: 20,
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-    imageList: [
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-    ]
+    imageCount: 2
   },
   shirt6: {
     text: "Shirt 6",
     description: "Shirt Description",
     choiceKey: "shirt6",
     orderKey: "shirt",
-    price: 20,
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-    imageList: [
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-    ]
+    imageCount: 3
   },
   shirt7: {
     text: "Shirt 7",
     description: "Shirt Description",
     choiceKey: "shirt7",
     orderKey: "shirt",
-    price: 20,
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-    imageList: [
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-    ]
-  },
-  shirt8: {
-    text: "Shirt 8",
-    description: "Shirt Description",
-    choiceKey: "shirt8",
-    orderKey: "shirt",
-    price: 20,
-    image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-    imageList: [
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-    ]
+    imageCount: 3
   },
   ownShirt: {
     text: "Own shirt",
     description: "I brought my own shirt to be cut by Norma!",
     choiceKey: "ownShirt",
     orderKey: "shirt",
-    price: 7,
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-    imageList: []
+    imageCount: 1
   }
 }
 
@@ -192,35 +71,30 @@ const sizes = {
     choiceKey: "small",
     orderKey: "size",
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-    imageList: []
   },
   medium: {
     text: "M",
     choiceKey: "medium",
     orderKey: "size",
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-    imageList: []
   },
   large: {
     text: "L",
     choiceKey: "large",
     orderKey: "size",
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-    imageList: []
   },
   xl: {
     text: "XL",
     choiceKey: "xl",
     orderKey: "size",
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-    imageList: []
   },
   xxl: {
     text: "XXL",
     choiceKey: "xxl",
     orderKey: "size",
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-    imageList: []
   },
 }
 
@@ -230,100 +104,156 @@ const cuts = {
     choiceKey: "cut1",
     orderKey: "cut",
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-    imageList: [
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-    ]
+    imageCount: 2
   },
   cut2: {
     text: "Cut 2",
     choiceKey: "cut2",
     orderKey: "cut",
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-    imageList: [
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-    ]
+    imageCount: 2
   },
   cut3: {
     text: "Cut 3",
     choiceKey: "cut3",
     orderKey: "cut",
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-    imageList: [
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-    ]
+    imageCount: 2
   },
   cut4: {
     text: "Cut 4",
     choiceKey: "cut4",
     orderKey: "cut",
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-    imageList: [
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-    ]
+    imageCount: 2
   },
-  custom: {
-    text: "Custom Cut",
-    choiceKey: "custom",
+  cut5: {
+    text: "Cut 5",
+    price: 7,
+    choiceKey: "cut5",
     orderKey: "cut",
     image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-    imageList: [
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-      {
-        original: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-        thumbnail: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
-      },
-    ]
+    imageCount: 1
+  },
+  cut6: {
+    text: "Cut 6",
+    price: 7,
+    choiceKey: "cut6",
+    orderKey: "cut",
+    image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
+    imageCount: 2
+  },
+  cut7: {
+    text: "Cut 7",
+    price: 7,
+    choiceKey: "cut7",
+    orderKey: "cut",
+    image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
+    imageCount: 2
+  },
+  cut8: {
+    text: "Cut 8",
+    price: 7,
+    choiceKey: "cut8",
+    orderKey: "cut",
+    image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
+    imageCount: 2
+  },
+  cut9: {
+    text: "Cut 9",
+    price: 7,
+    choiceKey: "cut9",
+    orderKey: "cut",
+    image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
+    imageCount: 2
+  },
+  cut10: {
+    text: "Cut 10",
+    price: 7,
+    choiceKey: "cut10",
+    orderKey: "cut",
+    image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
+    imageCount: 2
+  },
+  cut11: {
+    text: "Cut 11",
+    price: 7,
+    choiceKey: "cut11",
+    orderKey: "cut",
+    image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
+    imageCount: 2
+  },
+  cut12: {
+    text: "Cut 12",
+    price: 7,
+    choiceKey: "cut12",
+    orderKey: "cut",
+    image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
+    imageCount: 2
+  },
+  cut13: {
+    text: "Cut 13",
+    price: 7,
+    choiceKey: "cut13",
+    orderKey: "cut",
+    image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
+    imageCount: 3
+  },
+  cut14: {
+    text: "Cut 14",
+    price: 7,
+    choiceKey: "cut14",
+    orderKey: "cut",
+    image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
+    imageCount: 2
+  },
+  cut15: {
+    text: "Cut 15",
+    price: 7,
+    choiceKey: "cut15",
+    orderKey: "cut",
+    image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
+    imageCount: 2
+  },
+  cut16: {
+    text: "Cut 16",
+    price: 10,
+    choiceKey: "cut16",
+    orderKey: "cut",
+    image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
+    imageCount: 2
+  },
+  cut17: {
+    text: "Cut 17",
+    price: 10,
+    choiceKey: "cut17",
+    orderKey: "cut",
+    image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
+    imageCount: 2
+  },
+  cut18: {
+    text: "Cut 18",
+    price: 10,
+    choiceKey: "cut18",
+    orderKey: "cut",
+    image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
+    imageCount: 2
+  },
+  cut19: {
+    text: "Cut 19",
+    price: 10,
+    choiceKey: "cut19",
+    orderKey: "cut",
+    image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
+    imageCount: 2
+  },
+  cut20: {
+    text: "Cut 20",
+    price: 10,
+    choiceKey: "cut20",
+    orderKey: "cut",
+    image: "https://www.w3.org/TR/css-flexbox-1/images/computer.jpg",
+    imageCount: 2
   },
 }
 
@@ -336,7 +266,6 @@ const choices = {
     shirts.shirt5,
     shirts.shirt6,
     shirts.shirt7,
-    shirts.shirt8,
     shirts.ownShirt,
   ],
   sizes: [
@@ -350,7 +279,23 @@ const choices = {
     cuts.cut1,
     cuts.cut2,
     cuts.cut3,
-    cuts.cut4
+    cuts.cut4,
+    cuts.cut5,
+    cuts.cut6,
+    cuts.cut7,
+    cuts.cut8,
+    cuts.cut9,
+    cuts.cut10,
+    cuts.cut11,
+    cuts.cut12,
+    cuts.cut13,
+    cuts.cut14,
+    cuts.cut15,
+    cuts.cut16,
+    cuts.cut17,
+    cuts.cut18,
+    cuts.cut19,
+    cuts.cut20,
   ],
   custom: [
     {

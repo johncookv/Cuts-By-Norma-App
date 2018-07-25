@@ -20,7 +20,9 @@ Issues to resolve
 18. Make LaunchGallery into its own component to make code more DRY
 19. Put AppBar in App.jsx so it doesn't have to be in every component
 20. "Cross out" finished orders and put them at the bottom of the list - HIGH PRIORITY!!!
-21. Remove phone number auto dash logic
+21. Remove phone number auto dash logic - DONE
+22. Prices for cuts
+23. Image compression!!!! - HIGH PRIORITY
 
 
 Pretty much done with this stuff except for styling

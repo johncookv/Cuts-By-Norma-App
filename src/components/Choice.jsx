@@ -51,9 +51,9 @@ class Choice extends Component {
             <Fragment>
               <CardMedia
                 className={classes.media}
-                image={(ownShirtImage === "" || ownShirtImage === undefined) ? choice.image : ownShirtImage}
+                image={(ownShirtImage === "" || ownShirtImage === undefined) ? require(`../assets/images/${choice.choiceKey}/${choice.choiceKey}-1.jpg`) : ownShirtImage}
                 title={choice.text}
-                onClick={() => launchGallery(choice.orderKey, choice.imageList)}
+                onClick={() => launchGallery(choice.choiceKey, choice.imageCount)}
               />
               <CardContent>
                 <Typography gutterBottom variant="headline" component="h2">
@@ -62,7 +62,7 @@ class Choice extends Component {
                 <Typography gutterBottom variant="headline" component="h3">
                   Size: {sizeText}
                 </Typography>
-                <Typography gutterBottom variant="headline" component="h3" onClick={() => launchGallery(cut.orderKey, cut.imageList)}>
+                <Typography gutterBottom variant="headline" component="h3" onClick={() => launchGallery(choice.choiceKey, choice.imageCount)}>
                   Cut: {cut.text}
                 </Typography>
               </CardContent>
@@ -72,9 +72,9 @@ class Choice extends Component {
             <Fragment>
               <CardMedia
                 className={classes.media}
-                image={choice.image}
+                image={require(`../assets/images/${choice.choiceKey}/${choice.choiceKey}-1.jpg`)}
                 title={choice.text}
-                onClick={() => launchGallery(choice.orderKey, choice.imageList)}
+                onClick={() => launchGallery(choice.choiceKey, choice.imageCount)}
               />
               <CardContent>
                 <Typography gutterBottom variant="headline" component="h2">

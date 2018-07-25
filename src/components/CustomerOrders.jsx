@@ -19,13 +19,20 @@ export default class extends Component {
     this.backToCustomersOnClick = this.backToCustomersOnClick.bind(this);
   }
 
-  launchGallery(isImages = true, images) {
-    if (isImages) {
-      this.setState({
-        isGalleryDisplayed: true,
-        images: images
-      });
+  launchGallery(choice, imageCount) {
+    let imagesArray = [];
+    for (let i = 0; i < imageCount; i++) {
+      imagesArray.push(
+        {
+          original: require(`../assets/images/${choice}/${choice}-${i + 1}.jpg`),
+          thumbnail: require(`../assets/images/${choice}/${choice}-${i + 1}.jpg`)
+        }
+      );
     }
+    this.setState({
+      isGalleryDisplayed: true,
+      images: imagesArray
+    });
   }
 
   closeGallery = () => {

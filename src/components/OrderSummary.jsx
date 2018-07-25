@@ -14,13 +14,20 @@ export default class OrderSummary extends Component {
     window.scrollTo(0,0);
   }
 
-  launchGallery(isImages = true, images) {
-    if (isImages) {
-      this.setState({
-        isGalleryDisplayed: true,
-        images: images
-      });
+  launchGallery(choice, imageCount) {
+    let imagesArray = [];
+    for (let i = 0; i < imageCount; i++) {
+      imagesArray.push(
+        {
+          original: require(`../assets/images/${choice}/${choice}-${i + 1}.jpg`),
+          thumbnail: require(`../assets/images/${choice}/${choice}-${i + 1}.jpg`)
+        }
+      );
     }
+    this.setState({
+      isGalleryDisplayed: true,
+      images: imagesArray
+    });
   }
 
   render() {

@@ -19,24 +19,26 @@ export default class Order extends Component {
     this.launchGallery = this.launchGallery.bind(this);
   }
 
-  componentDidMount() {
-    window.scrollTo(0,0);
-  }
-
-  // componentWillReceiveProps(nextProps) {
-  //   if (this.props !== nextProps) {
-  //     window.scrollTo(0,0);
-  //   }
+  // componentDidMount() {
+  //   window.scrollTo(0,0);
   // }
 
-  launchGallery(isImages = true, images) {
-    if (isImages) {
-      this.setState({
-        isGalleryDisplayed: true,
-        images: images
-      });
+  launchGallery(choice, imageCount) {
+    let imagesArray = [];
+    for (let i = 0; i < imageCount; i++) {
+      imagesArray.push(
+        {
+          original: require(`../assets/images/${choice}/${choice}-${i + 1}.jpg`),
+          thumbnail: require(`../assets/images/${choice}/${choice}-${i + 1}.jpg`)
+        }
+      );
     }
+    this.setState({
+      isGalleryDisplayed: true,
+      images: imagesArray
+    });
   }
+
 
   closeGallery = () => {
     this.setState({ isGalleryDisplayed: false });
