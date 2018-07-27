@@ -266,15 +266,22 @@ class App extends Component {
   //   this.setState({ totalPrice: this.state.prevPrice });
   // }
 
-  launchGallery(choice, imageCount) {
+  launchGallery(choice, imageCount, ownShirtImage = "") {
     let imagesArray = [];
-    for (let i = 0; i < imageCount; i++) {
-      imagesArray.push(
-        {
-          original: require(`./assets/images/${choice}/${choice}-${i + 1}.jpg`),
-          thumbnail: require(`./assets/images/${choice}/${choice}-${i + 1}.jpg`)
-        }
-      );
+    if (ownShirtImage !== "") {
+      imagesArray[0] = {
+        original: ownShirtImage,
+        thumbnail: ownShirtImage
+      };
+    } else {
+      for (let i = 0; i < imageCount; i++) {
+        imagesArray.push(
+          {
+            original: require(`./assets/images/${choice}/${choice}-${i + 1}.jpg`),
+            thumbnail: require(`./assets/images/${choice}/${choice}-${i + 1}.jpg`)
+          }
+        );
+      }
     }
     this.setState({
       isGalleryDisplayed: true,
@@ -284,7 +291,10 @@ class App extends Component {
 
 
   closeGallery = () => {
-    this.setState({ isGalleryDisplayed: false });
+    this.setState({
+      isGalleryDisplayed: false,
+      galleryImages: []
+    });
   }
 
   render() {
@@ -345,7 +355,9 @@ class App extends Component {
                 backToCustomers={this.backToCustomers}
                 isCustomerSelected={this.state.isCustomerSelected}
                 reset={this.reset}
-                isCustomerFulfilled={this.state.isCustomerFulfilled}/>} />
+                isCustomerFulfilled={this.state.isCustomerFulfilled}
+                launchGallery={this.launchGallery}
+                isGalleryDisplayed={this.state.isGalleryDisplayed}/>} />
             <Route path="/own-shirt" render={() =>
               <WebcamCapture
                 updateOwnShirt={this.updateOwnShirt}

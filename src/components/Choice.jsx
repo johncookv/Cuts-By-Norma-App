@@ -55,10 +55,10 @@ class Choice extends Component {
             // Layout for Summary pages
             <Fragment>
               <CardMedia
-                className={classes.media}
+                className={(ownShirtImage === "" || ownShirtImage === undefined) ? classes.media : classes.mediaOwn}
                 image={(ownShirtImage === "" || ownShirtImage === undefined) ? require(`../assets/images/${choice.choiceKey}/${choice.choiceKey}-card.jpg`) : ownShirtImage}
                 title={choice.text}
-                onClick={() => launchGallery(choice.choiceKey, choice.imageCount)}
+                onClick={() => launchGallery(choice.choiceKey, choice.imageCount, ownShirtImage)}
               />
               <CardContent>
                 <Typography gutterBottom variant="headline" component="h2">

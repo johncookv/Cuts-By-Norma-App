@@ -1,6 +1,5 @@
 import React, {Component,Fragment} from 'react';
 import {Redirect} from 'react-router-dom';
-import ImageGallery from 'react-image-gallery';
 import Choice from './Choice';
 import AppBar from './AppBar'
 import firebase from '../config/firebase';
@@ -14,29 +13,8 @@ export default class extends Component {
       images: [],
       isOrderFulfilled: false,
     }
-    this.launchGallery = this.launchGallery.bind(this);
     this.handleFulfilled = this.handleFulfilled.bind(this);
     this.backToCustomersOnClick = this.backToCustomersOnClick.bind(this);
-  }
-
-  launchGallery(choice, imageCount) {
-    let imagesArray = [];
-    for (let i = 0; i < imageCount; i++) {
-      imagesArray.push(
-        {
-          original: require(`../assets/images/${choice}/${choice}-${i + 1}.jpg`),
-          thumbnail: require(`../assets/images/${choice}/${choice}-${i + 1}.jpg`)
-        }
-      );
-    }
-    this.setState({
-      isGalleryDisplayed: true,
-      images: imagesArray
-    });
-  }
-
-  closeGallery = () => {
-    this.setState({ isGalleryDisplayed: false });
   }
 
   handleFulfilled(e) {
@@ -65,13 +43,13 @@ export default class extends Component {
   }
 
   render() {
-    const {customer, DB, isOrderFinished, isCustomerSelected, isCustomerFulfilled} = this.props;
+    const {customer, DB, isOrderFinished, isCustomerSelected, isCustomerFulfilled, isGalleryDisplayed} = this.props;
     const address = customer.address
     if (!isCustomerSelected) {
       return <Redirect to="/customers" />
     }
     return (
-      <div className={`${this.state.isGalleryDisplayed ? "no-scroll" : ""} customers`}>
+      <div className={`${isGalleryDisplayed ? "no-scroll" : ""} customers`}>
         <AppBar {...this.props} />
         <div className="container">
           <div className="row">
@@ -130,7 +108,7 @@ export default class extends Component {
                     index={index}
                     isOrderFinished={isOrderFinished}
                     ownShirtImage={order.ownShirtImage}
-                    launchGallery={this.launchGallery}
+                    launchGallery={this.props.launchGallery}
                     isCustomerSelected={isCustomerSelected}/>
                 </div>
               )
@@ -156,16 +134,6 @@ export default class extends Component {
           </div>
           </div>
         </div>
-        {this.state.isGalleryDisplayed &&
-          <div className="modal-container">
-            <div className="close-container" onClick={this.closeGallery}>CLOSE&nbsp;&nbsp;<span>X</span></div>
-            <ImageGallery
-              items={this.state.images}
-              showFullscreenButton={false}
-              showPlayButton={false}
-              preventDefaultTouchmoveEvent={true}/>
-          </div>
-        }
       </div>
     )
   }
